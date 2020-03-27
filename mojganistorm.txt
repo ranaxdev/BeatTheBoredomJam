@@ -10,3 +10,9 @@ GENRE
 STORY
 Start off with patch of grass, some resources and you're surrounded by desert n shiet, to mine resources u gotta go out of ur comfort zone, zombies in the desert u can fight
 
+RESPONSIBILITY
+
+Art/Assets - pitu
+Lead programmering - domi
+
+FEATURES
