@@ -8,15 +8,20 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "KinematicBody2D",
+"class": "Actor",
+"language": "GDScript",
+"path": "res://Scripts/Actors/Actor.gd"
+} ]
 _global_script_class_icons={
-
+"Actor": ""
 }
 
 [application]
 
 config/name="Beat The Boredom Jam"
-run/main_scene="res://Scenes/test.tscn"
+run/main_scene="res://Scenes/World.tscn"
 
 [display]
 
