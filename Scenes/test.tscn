@@ -1,6 +1,62 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Scripts/Main.gd" type="Script" id=1]
 
+[sub_resource type="GDScript" id=1]
+script/source = "extends Node2D
+
+const MAX_SPEED:int = 250;
+const DRAG:float = 0.90;
+
+var pos:Vector2;
+var currentPos:Vector2;
+var velocity:Vector2;
+var size:Vector2;
+
+func _ready():
+	pos = Vector2();
+	velocity = Vector2();
+	currentPos = Vector2();
+	size = Vector2(50,50);
+
+func _draw():
+	draw_rect(Rect2(currentPos,size),Color(1,0,0));
+
+func _input(event):
+	#PRESSED
+	if(event.is_action_pressed(\"ui_up\")):
+		velocity.y = -MAX_SPEED;
+	if(event.is_action_pressed(\"ui_down\")):
+		velocity.y = MAX_SPEED;
+	if(event.is_action_pressed(\"ui_right\")):
+		velocity.x = -MAX_SPEED;
+	if(event.is_action_pressed(\"ui_left\")):
+		velocity.x = MAX_SPEED;
+	
+	#RELEASED
+	if(event.is_action_released(\"ui_up\")):
+		velocity.y=0;
+	if(event.is_action_released(\"ui_down\")):
+		velocity.y=0;
+	if(event.is_action_released(\"ui_right\")):
+		velocity.x=0;
+	if(event.is_action_released(\"ui_left\")):
+		velocity.x=0;
+	
+
+
+func _process(delta):
+	currentPos.x = lerp(currentPos.x, velocity.x,0.1);
+	currentPos.y = lerp(currentPos.y, velocity.y,0.1);
+	
+	self.translate(position+currentPos*delta);
+	
+	
+	
+"
+
 [node name="Root" type="Node"]
 script = ExtResource( 1 )
+
+[node name="Player" type="Node2D" parent="."]
+script = SubResource( 1 )
