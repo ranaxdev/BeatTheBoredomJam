@@ -9,6 +9,6 @@ func _enter_tree():
 func _ready():
 	pass;
 
-#***UPDATE***
+#***UPDATE EVENT***
 func _process(delta):
 	pass;
