@@ -26,3 +26,8 @@ func updateMousePos() -> void:
 func updatePlayerPos() -> void:
 	player_pos = tilemap.world_to_map(Vector2(player.position.x,player.position.y))
 
+# Limit reach of planting tile
+func isWithinReach() -> bool:
+	if(mouse_pos.x<player_pos.x+2 and mouse_pos.x>player_pos.x-2 and mouse_pos.y>player_pos.y-2 and mouse_pos.y<player_pos.y+2):
+		return true
+	return false

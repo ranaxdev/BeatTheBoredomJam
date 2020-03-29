@@ -29,8 +29,9 @@ acceleration = 3000
 position = Vector2( 145.115, 880.87 )
 z_index = 800
 
+[node name="Seed" type="Sprite" parent="."]
+z_index = 1
+script = ExtResource( 6 )
+
 [node name="Plough" type="Sprite" parent="."]
 script = ExtResource( 3 )
-
-[node name="Seed" type="Sprite" parent="Plough"]
-script = ExtResource( 6 )

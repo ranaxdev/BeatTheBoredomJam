@@ -16,7 +16,7 @@ func _ready():
 
 #***UPDATE EVENT***
 func _process(_delta):
-	self.visible=false; #Hide texture
+	self.visible=false #Hide texture
 	#Rake is selected to plough
 	if(toolbar.getcurrentTool()==toolbar.getTools().RAKE and canPlough):
 		plough() # Plough available
@@ -30,9 +30,8 @@ func _draw():
 # Plough land function
 func plough() -> void:
 	#TEMP (REFACTOR LATER)
-	
 	#Limit the reach (2 tiles in each direction)
-	if(mouse_pos.x<player_pos.x+2 and mouse_pos.x>player_pos.x-2 and mouse_pos.y>player_pos.y-2 and mouse_pos.y<player_pos.y+2):
+	if(isWithinReach()):
 		#Texture visible if in reach and on grass
 		if tilemap.get_cellv(mouse_pos)==TileType.GRASS:
 			self.visible=true
