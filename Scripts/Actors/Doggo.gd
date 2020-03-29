@@ -17,7 +17,7 @@ func _ready():
 	call_deferred("setState", states.following)
 
 func stateLogic(delta):
-	print(state)
+	
 	if state == states.following:
 		follow(delta)
 	if state == states.stopping:
