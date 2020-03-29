@@ -12,7 +12,7 @@ func _ready():
 	pass
 
 #***UPDATE EVENT***
-func _process(delta):
+func _process(_delta):
 	_switchTexture()
 
 #Switch texture depending on currentTool
