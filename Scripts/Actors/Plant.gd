@@ -28,16 +28,18 @@ func _ready():
 #***UPDATE EVENT***
 func _process(_delta):
 	self.visible=false; #Hide texture
+	
 	#Rake is selected to plough
 	if(toolbar.getcurrentTool()==toolbar.getTools().RAKE and canPlough):
 		plough() # Plough available
-		
+	
 	
 	#Update node position to be mouse position
 	self.position = Vector2(get_global_mouse_position().x,get_global_mouse_position().y)
 	
 
-func plough():
+# Plough land function
+func plough() -> void:
 	#TEMP (REFACTOR LATER)
 	updateMousePos()
 	updatePlayerPos()
@@ -53,15 +55,17 @@ func plough():
 			# Restart timer
 			ploughTimer.start()
 
-func _onPloughTimerComplete():
-	canPlough = true;
-	
 
-#Mouse cartesian coords to world units
-func updateMousePos():
+# Enables plough function after timer completes
+func _onPloughTimerComplete() -> void:
+	canPlough = true;
+
+
+# Mouse cartesian coords to world units
+func updateMousePos() -> void:
 	mouse_pos = tilemap.world_to_map(Vector2(get_global_mouse_position().x,get_global_mouse_position().y))
 
 
-#Player cartesian coords to world units
-func updatePlayerPos():
+# Player cartesian coords to world units
+func updatePlayerPos() -> void:
 	player_pos = tilemap.world_to_map(Vector2(player.position.x,player.position.y))
