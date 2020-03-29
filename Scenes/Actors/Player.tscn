@@ -21,7 +21,7 @@ texture = ExtResource( 1 )
 current = true
 
 [node name="Toolbar" type="Sprite" parent="Camera2D"]
-position = Vector2( 0.946655, -215.278 )
+position = Vector2( 478.2, -291.429 )
 z_index = 999
 texture = ExtResource( 4 )
 region_enabled = true
