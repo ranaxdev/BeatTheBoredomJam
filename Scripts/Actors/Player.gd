@@ -10,3 +10,4 @@ func getInputAxis():
 	axis.y = Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
 	return axis.normalized()
 
+	
