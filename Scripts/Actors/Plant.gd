@@ -10,7 +10,7 @@ var dirtTexture:Texture = preload("res://Assets/tempdirt.png")
 enum TileType {WALL=0, GRASS=1, DIRT=2}
 
 var ploughTimer:Timer = null
-var ploughDelay:float = 2.0;
+var ploughDelay:float = 2.0
 var canPlough:bool = true
 
 #***CREATE EVENT***
@@ -27,7 +27,7 @@ func _ready():
 
 #***UPDATE EVENT***
 func _process(_delta):
-	self.visible=false; #Hide texture
+	self.visible=false #Hide texture
 	
 	#Rake is selected to plough
 	if(toolbar.getcurrentTool()==toolbar.getTools().RAKE and canPlough):
@@ -58,7 +58,7 @@ func plough() -> void:
 
 # Enables plough function after timer completes
 func _onPloughTimerComplete() -> void:
-	canPlough = true;
+	canPlough = true
 
 
 # Mouse cartesian coords to world units

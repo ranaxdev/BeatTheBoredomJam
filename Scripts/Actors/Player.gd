@@ -1,5 +1,7 @@
 extends Actor
 
+
+
 func _ready():
 	addState("idle")
 	addState("move")
