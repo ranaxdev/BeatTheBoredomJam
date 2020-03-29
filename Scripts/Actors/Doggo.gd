@@ -3,8 +3,10 @@ extends Actor
 onready var nav2d : Navigation2D = $"/root/World/NavMap"
 onready var player : KinematicBody2D = $"/root/World/Player"
 
-const startFollowDist = 300
-const stopFollowDist = 100
+const startFollowDist := 300
+const stopFollowDist := 150
+const startMoveAwayDist := 100
+const stopMoveAwayDist := 150
 
 var stopped := false
 
@@ -20,7 +22,11 @@ func stateLogic(delta):
 		if states[key] == state:
 			$Label.set_text(key)
 	$Label2.set_text(str(global_position.distance_to(player.global_position)))
-	follow(delta)
+	
+	if [states.idle, states.following].has(state):
+		follow(delta)
+	if state == states.movingAway:
+		moveAway(delta)
 
 
 func getTransition(delta):
@@ -28,13 +34,16 @@ func getTransition(delta):
 		states.idle:
 			if shouldFollow():
 				return states.following
+			elif shouldMoveAway():
+				return states.movingAway
 		states.following:
 			if shouldStopFollowing():
 				return states.idle
 		states.wandering:
 			pass
 		states.movingAway:
-			pass
+			if shouldStopMoveAway():
+				return states.idle
 	return null
 
 func enterState(new, old):
@@ -60,18 +69,23 @@ func follow(delta):
 		motionAxis = motionAxis.normalized()
 	move(delta)
 
+func moveAway(delta):
+	motionAxis = Vector2.ZERO
+	if state == states.movingAway:
+		var path = nav2d.get_simple_path(global_position, player.global_position)	
+		motionAxis = path[1] - global_position
+		motionAxis = -motionAxis.normalized()
+	move(delta)
+
 func shouldFollow() -> bool:
-	if global_position.distance_to(player.global_position) > startFollowDist:
-		stopped = false
-		return true
-	return false
+	return global_position.distance_to(player.global_position) > startFollowDist
 
 func shouldStopFollowing() -> bool:
-	if global_position.distance_to(player.global_position) <= stopFollowDist:
-		stopped = true
-		return true
-	return false
+	return global_position.distance_to(player.global_position) <= stopFollowDist
 
 func shouldMoveAway() -> bool:
-	return global_position.distance_to(player.global_position) <= stopFollowDist
-	
+	return global_position.distance_to(player.global_position) <= startMoveAwayDist
+
+func shouldStopMoveAway() -> bool:
+	return global_position.distance_to(player.global_position) > stopMoveAwayDist
+
