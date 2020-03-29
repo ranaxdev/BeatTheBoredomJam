@@ -22,7 +22,6 @@ tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 
 [node name="Doggo" parent="." instance=ExtResource( 5 )]
 position = Vector2( 672, 656 )
 acceleration = 3000
-startFollowDist = 100
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 384, 936 )
