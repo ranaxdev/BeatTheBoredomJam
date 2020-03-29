@@ -26,6 +26,7 @@ acceleration = 3000
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 145.115, 880.87 )
+z_index = 800
 
 [node name="Plant" type="Sprite" parent="."]
 script = ExtResource( 3 )

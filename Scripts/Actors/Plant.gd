@@ -15,9 +15,6 @@ var canPlough:bool = true
 
 #***CREATE EVENT***
 func _ready():
-	self.set_texture(dirtTexture)
-	self.modulate = Color(1.0,1.0,1.0,0.5) #Decrease opacity
-	
 	# Timer setup (to wait until next available plough)
 	ploughTimer = Timer.new()
 	ploughTimer.set_one_shot(true)
@@ -33,10 +30,11 @@ func _process(_delta):
 	if(toolbar.getcurrentTool()==toolbar.getTools().RAKE and canPlough):
 		plough() # Plough available
 	
-	
-	#Update node position to be mouse position
-	self.position = Vector2(get_global_mouse_position().x,get_global_mouse_position().y)
-	
+
+#***RENDER***
+func _draw():
+	# Draw the transluscent hovering tile
+	draw_texture(dirtTexture,tilemap.map_to_world(mouse_pos),Color(1.0,1.0,1.0,0.5))
 
 # Plough land function
 func plough() -> void:
@@ -45,8 +43,9 @@ func plough() -> void:
 	updatePlayerPos()
 	#Limit the reach (2 tiles in each direction)
 	if(mouse_pos.x<player_pos.x+2 and mouse_pos.x>player_pos.x-2 and mouse_pos.y>player_pos.y-2 and mouse_pos.y<player_pos.y+2):
-		#Texture visible if in reach
-		self.visible=true
+		#Texture visible if in reach and on grass
+		if tilemap.get_cellv(mouse_pos)==TileType.GRASS:
+			self.visible=true
 		#Plough the tile on click
 		if(Input.is_mouse_button_pressed(BUTTON_LEFT) and tilemap.get_cellv(mouse_pos)==TileType.GRASS):
 			tilemap.set_cellv(mouse_pos,TileType.DIRT)
@@ -59,7 +58,6 @@ func plough() -> void:
 # Enables plough function after timer completes
 func _onPloughTimerComplete() -> void:
 	canPlough = true;
-
 
 # Mouse cartesian coords to world units
 func updateMousePos() -> void:
