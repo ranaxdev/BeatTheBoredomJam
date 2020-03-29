@@ -5,6 +5,8 @@
 [ext_resource path="res://Assets/tempdirt.png" type="Texture" id=3]
 [ext_resource path="res://Assets/templava.png" type="Texture" id=4]
 
+
+
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 
