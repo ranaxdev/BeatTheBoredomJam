@@ -22,7 +22,6 @@ func move(delta):
 		motion.y = lerp(motion.y, 0, friction)
 	applyMovement(motionAxis * acceleration * delta)
 	motion = move_and_slide(motion)
-	motion
 
 """ 
 	~~~ STATE MACHINE ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
