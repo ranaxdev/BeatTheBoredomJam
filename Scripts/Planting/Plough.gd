@@ -1,14 +1,7 @@
-extends Sprite
+extends Plant
 
-onready var tilemap:TileMap = $"/root/World/NavMap/TileMap"
-onready var player:Actor = $"/root/World/Player"
-onready var toolbar:Sprite = $"/root/World/Player/Camera2D/Toolbar"
 
-var mouse_pos:Vector2 #Mouse cursor position in world units
-var player_pos:Vector2 #Player position in world units
 var dirtTexture:Texture = preload("res://Assets/tempdirt.png")
-enum TileType {WALL=0, GRASS=1, DIRT=2}
-
 var ploughTimer:Timer = null
 var ploughDelay:float = 2.0;
 var canPlough:bool = true
@@ -25,7 +18,6 @@ func _ready():
 #***UPDATE EVENT***
 func _process(_delta):
 	self.visible=false; #Hide texture
-	
 	#Rake is selected to plough
 	if(toolbar.getcurrentTool()==toolbar.getTools().RAKE and canPlough):
 		plough() # Plough available
@@ -39,8 +31,7 @@ func _draw():
 # Plough land function
 func plough() -> void:
 	#TEMP (REFACTOR LATER)
-	updateMousePos()
-	updatePlayerPos()
+	
 	#Limit the reach (2 tiles in each direction)
 	if(mouse_pos.x<player_pos.x+2 and mouse_pos.x>player_pos.x-2 and mouse_pos.y>player_pos.y-2 and mouse_pos.y<player_pos.y+2):
 		#Texture visible if in reach and on grass
@@ -58,12 +49,3 @@ func plough() -> void:
 # Enables plough function after timer completes
 func _onPloughTimerComplete() -> void:
 	canPlough = true;
-
-# Mouse cartesian coords to world units
-func updateMousePos() -> void:
-	mouse_pos = tilemap.world_to_map(Vector2(get_global_mouse_position().x,get_global_mouse_position().y))
-
-
-# Player cartesian coords to world units
-func updatePlayerPos() -> void:
-	player_pos = tilemap.world_to_map(Vector2(player.position.x,player.position.y))
