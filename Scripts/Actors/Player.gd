@@ -26,9 +26,11 @@ func enterState(new, old):
 func exitState(old, new):
 	pass
 
+
 func getInputAxis():
 	if [states.idle, states.move].has(state):
 		return Vector2(
 			Input.get_action_strength("move_right") - Input.get_action_strength("move_left"),
 			Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
 		)
+
