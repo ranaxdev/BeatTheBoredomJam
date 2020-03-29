@@ -21,7 +21,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Beat The Boredom Jam"
-run/main_scene="res://Scripts/Scenes/World.tscn"
+run/main_scene="res://Scenes/World.tscn"
 
 [display]
 
