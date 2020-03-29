@@ -22,6 +22,7 @@ func stateLogic(delta):
 	$Label2.set_text(str(global_position.distance_to(player.global_position)))
 	follow(delta)
 
+
 func getTransition(delta):
 	match state:
 		states.idle:
