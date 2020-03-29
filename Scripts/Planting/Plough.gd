@@ -1,6 +1,5 @@
 extends Plant
 
-
 var dirtTexture:Texture = preload("res://Assets/tempdirt.png")
 var ploughTimer:Timer = null
 var ploughDelay:float = 2.0;
