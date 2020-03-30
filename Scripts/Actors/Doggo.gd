@@ -18,15 +18,17 @@ const circleDistance := 60.0
 const circleRadius := 20.0
 const angleChange := 0.3
 var wanderAngle := 0.0
+var prevSpeed
+const wanderSpeed := 200.0
 
-
+# ~~~ INIT STATES ~~~ #
 func _ready():
 	randomize()
 	addState("idle")
 	addState("following")
 	addState("wandering")
 	addState("movingAway")
-	call_deferred("setState", states.wandering)
+	call_deferred("setState", states.idle)
 	
 	wanderTimer = Timer.new()
 	wanderTimer.set_one_shot(true)
@@ -56,12 +58,16 @@ func getTransition(delta):
 			elif shouldMoveAway():
 				return states.movingAway
 			elif shouldWander:
-				return states.wandering
+				pass
+				#return states.wandering
 		states.following:
 			if shouldStopFollowing():
 				return states.idle
 		states.wandering:
-			pass
+			if shouldFollow():
+				return states.following
+			elif shouldMoveAway():
+				return states.movingAway
 		states.movingAway:
 			if shouldStopMoveAway():
 				return states.idle
@@ -74,6 +80,8 @@ func enterState(new, old):
 		states.following:
 			pass
 		states.wandering:
+			prevSpeed = MAX_SPEED
+			MAX_SPEED = wanderSpeed
 			pass
 		states.movingAway:
 			pass
@@ -85,6 +93,7 @@ func exitState(old, new):
 		states.following:
 			pass
 		states.wandering:
+			MAX_SPEED = prevSpeed
 			shouldWander = false
 		states.movingAway:
 			pass
