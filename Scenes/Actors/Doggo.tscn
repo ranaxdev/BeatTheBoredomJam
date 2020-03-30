@@ -44,5 +44,3 @@ uppercase = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="stopTimer" type="Timer" parent="."]
