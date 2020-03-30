@@ -30,9 +30,9 @@ func plantCrop() -> void:
 			var crop = Crop.new(1,player_pos)
 			add_child(crop)
 			plantedCrops.append(crop)
-	
-	print(get_child_count())
-	print(plantedCrops)
+			# Update dirt tile empty status
+			get_node("../Plough/").dirtTileEmpty[player_pos]=false
+
 
 # Return true if overlap between player and a crop
 func cropMatchesPlayer() -> bool:
@@ -41,3 +41,4 @@ func cropMatchesPlayer() -> bool:
 			return true
 	return false
 	
+

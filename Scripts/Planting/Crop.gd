@@ -36,7 +36,6 @@ func _draw():
 
 #***UPDATE***
 func _process(delta):
-	print(currentStage)
 	pass
 
 
