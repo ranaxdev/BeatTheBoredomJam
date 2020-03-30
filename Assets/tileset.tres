@@ -1,11 +1,10 @@
-[gd_resource type="TileSet" load_steps=8 format=2]
+[gd_resource type="TileSet" load_steps=10 format=2]
 
 [ext_resource path="res://Assets/tempwall.png" type="Texture" id=1]
 [ext_resource path="res://Assets/tempground.png" type="Texture" id=2]
 [ext_resource path="res://Assets/tempdirt.png" type="Texture" id=3]
 [ext_resource path="res://Assets/templava.png" type="Texture" id=4]
-
-
+[ext_resource path="res://Assets/tempseededsoil.png" type="Texture" id=5]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
@@ -16,6 +15,10 @@ polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
 
 [sub_resource type="NavigationPolygon" id=3]
 vertices = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
+
+[sub_resource type="NavigationPolygon" id=4]
+vertices = PoolVector2Array( 64, 0, 0, 0, 0, 64, 64, 64 )
 polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
 
 [resource]
@@ -84,3 +87,18 @@ polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
 3/shape_one_way_margin = 0.0
 3/shapes = [  ]
 3/z_index = 0
+4/name = "tempseededsoil.png 4"
+4/texture = ExtResource( 5 )
+4/tex_offset = Vector2( 0, 0 )
+4/modulate = Color( 1, 1, 1, 1 )
+4/region = Rect2( 0, 0, 64, 64 )
+4/tile_mode = 0
+4/occluder_offset = Vector2( 0, 0 )
+4/navigation_offset = Vector2( 0, 0 )
+4/navigation = SubResource( 4 )
+4/shape_offset = Vector2( 0, 0 )
+4/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+4/shape_one_way = false
+4/shape_one_way_margin = 0.0
+4/shapes = [  ]
+4/z_index = 0
