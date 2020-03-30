@@ -6,7 +6,7 @@ onready var player:Actor = $"/root/World/Player"
 onready var toolbar:Sprite = $"/root/World/Player/Camera2D/Toolbar"
 
 var player_pos:Vector2 #Player position in world units
-enum TileType {WALL=0, GRASS=1, DIRT=2, LAVA=3, PLANTED=4}
+enum TileType {WALL=0, GRASS=1, DIRT=2, LAVA=3}
 
 
 func _ready():

@@ -27,11 +27,13 @@ func _ready():
 	self.set_position(Vector2(-overImg.get_width()/2,-viewport_size.y/2+overImg.get_height()/2))
 	
 func _process(delta):
+	self.set_value(float(currentHealth))
+	
 	# TEMP (For damage testing)
 	var playercoord = tilemap.world_to_map(Vector2(player.position.x,player.position.y))
 	if(tilemap.get_cellv(playercoord)==3):
-		self.set_value(self.get_value()-1)
+		currentHealth-=1
 	else:
-		self.set_value(self.get_value()+0.5)
+		currentHealth+=0.5
 
 

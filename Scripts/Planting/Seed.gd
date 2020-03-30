@@ -9,6 +9,7 @@ also 0/null if none selected
 """
 var seedType:int = 1;
 var seedSelected:bool = true;  # A seed is equipped, leave true for now
+var plantedCrops = Array() # List of unharvest, planted crops
 
 #***CREATE EVENT***
 func _ready():
@@ -24,8 +25,19 @@ func _process(delta):
 # Plants seed on dirt tile
 func plantCrop() -> void:
 	if(tilemap.get_cellv(player_pos)==TileType.DIRT):
-		# Plant the seed - later on make the crop class detailed (bare minimum rn)
-		var crop = Crop.new(1,player_pos)
-		add_child(crop)
+		# Plant crop into dirt if there isn't already one planted
+		if(!cropMatchesPlayer()):
+			var crop = Crop.new(1,player_pos)
+			add_child(crop)
+			plantedCrops.append(crop)
+	
+	print(get_child_count())
+	print(plantedCrops)
 
-
+# Return true if overlap between player and a crop
+func cropMatchesPlayer() -> bool:
+	for i in plantedCrops:
+		if(i.getPos()==player_pos):
+			return true
+	return false
+	
