@@ -1,6 +1,5 @@
 extends Plant
 
-
 var dirtTexture:Texture = preload("res://Assets/tempdirt.png")
 
 # Dirt tiles empty or not (dont have crops on them)
@@ -34,11 +33,14 @@ func _ready():
 #***UPDATE EVENT***
 func _process(_delta):
 	self.visible=false #Hide texture
+	
 	#Rake is selected to plough
 	if(toolbar.getcurrentTool()==toolbar.getTools().RAKE and canPlough):
 		plough() # Plough available
 	
-	
+	#Water tool is selected to water tile
+	if(toolbar.getcurrentTool()==toolbar.getTools().WATER):
+		water()
 
 # Plough land function
 func plough() -> void:
@@ -53,7 +55,17 @@ func plough() -> void:
 		# Restart timers
 		ploughTimer.start()
 		revertTimer.start()
-	print(revertTimer.time_left)
+
+
+# Water dirt tile (and start growth if crop planted)
+func water() -> void:
+	if(Input.is_action_just_pressed("ui_accept") and tilemap.get_cellv(player_pos)==TileType.DIRT):
+		# Start growing crops if watered
+		for i in get_node("../Seed/").getPlantedCrops():
+			if(i.getPos()==player_pos):
+				i.setWatered()
+		# Tile darkens
+		tilemap.set_cellv(player_pos,TileType.WETDIRT)
 
 # Enables plough function after timer completes
 func _onPloughTimerComplete() -> void:

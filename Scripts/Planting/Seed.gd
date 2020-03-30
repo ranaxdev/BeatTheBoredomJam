@@ -24,7 +24,7 @@ func _process(delta):
 
 # Plants seed on dirt tile
 func plantCrop() -> void:
-	if(tilemap.get_cellv(player_pos)==TileType.DIRT):
+	if(tilemap.get_cellv(player_pos)==TileType.DIRT and toolbar.getcurrentTool()==toolbar.getTools().RAKE):
 		# Plant crop into dirt if there isn't already one planted
 		if(!cropMatchesPlayer()):
 			var crop = Crop.new(1,player_pos)
@@ -42,3 +42,6 @@ func cropMatchesPlayer() -> bool:
 	return false
 	
 
+# Return planted crops array
+func getPlantedCrops() -> Array:
+	return plantedCrops

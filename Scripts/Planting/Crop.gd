@@ -28,7 +28,7 @@ func _ready():
 	growTimer.set_wait_time(growthDelay)
 	growTimer.connect("timeout",self,"_onGrowTimerComplete")
 	add_child(growTimer)
-	growTimer.start()
+	
 
 #***RENDER***
 func _draw():
@@ -46,7 +46,12 @@ func _onGrowTimerComplete()->void:
 		tempTexture = growTextures[currentStage] #Advance texture
 		update() #Redraw texture
 		growTimer.start()
+		
 
+# Enable grow timer when watered
+func setWatered() -> void:
+	growTimer.start()
+	print("started")
 
 #***GETTERS***
 
@@ -59,3 +64,4 @@ func readyToHarvest() -> bool:
 	if(currentStage==3):
 		return true
 	return false
+
