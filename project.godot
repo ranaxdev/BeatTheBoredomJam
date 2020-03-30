@@ -13,15 +13,30 @@ _global_script_classes=[ {
 "class": "Actor",
 "language": "GDScript",
 "path": "res://Scripts/Actors/Actor.gd"
+}, {
+"base": "Plant",
+"class": "Crop",
+"language": "GDScript",
+"path": "res://Scripts/Planting/Crop.gd"
+}, {
+"base": "Sprite",
+"class": "Plant",
+"language": "GDScript",
+"path": "res://Scripts/Planting/Plant.gd"
 } ]
 _global_script_class_icons={
-"Actor": ""
+"Actor": "",
+"Crop": "",
+"Plant": ""
 }
 
 [application]
 
 config/name="Beat The Boredom Jam"
 run/main_scene="res://Scenes/World.tscn"
+boot_splash/fullsize=false
+boot_splash/use_filter=false
+boot_splash/bg_color=Color( 0.0862745, 0.0862745, 0.0862745, 1 )
 
 [display]
 

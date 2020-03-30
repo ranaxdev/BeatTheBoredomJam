@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scenes/Actors/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/World.gd" type="Script" id=2]
-[ext_resource path="res://Scripts/Actors/Plant.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/Planting/Plough.gd" type="Script" id=3]
 [ext_resource path="res://Assets/tileset.tres" type="TileSet" id=4]
 [ext_resource path="res://Scenes/Actors/Doggo.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scripts/Planting/Seed.gd" type="Script" id=6]
 
 [node name="World" type="Node"]
 script = ExtResource( 2 )
@@ -25,7 +26,12 @@ position = Vector2( 672, 656 )
 acceleration = 3000
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 872, 664 )
+position = Vector2( 145.115, 880.87 )
+z_index = 800
 
-[node name="Plant" type="Sprite" parent="."]
+[node name="Seed" type="Sprite" parent="."]
+z_index = 1
+script = ExtResource( 6 )
+
+[node name="Plough" type="Sprite" parent="."]
 script = ExtResource( 3 )
