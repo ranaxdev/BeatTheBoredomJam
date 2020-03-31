@@ -1,6 +1,6 @@
 extends Actor
 
-onready var attackArea = $AttackArea
+onready var sword = $Sword
 onready var charSprite = $Sprite
 
 func _ready():
@@ -8,8 +8,13 @@ func _ready():
 	addState("move")
 	addState("attack")
 	call_deferred("setState", states.idle)
+	sword.get_node("Sprite").frame = 0 # weird sprite behavior if not set 0
 
 func stateLogic(delta):
+	# disable sword on next frame
+	if !sword.get_node("Collision").disabled:
+		sword.get_node("Collision").disabled = true
+	
 	motionAxis = getInputAxis()
 	if motionAxis.x < 0:
 		charSprite.flip_h = true
@@ -45,9 +50,11 @@ func exitState(old, new):
 			charSprite.stop()
 
 func attack():
-	var direction := get_local_mouse_position()
-	attackArea.rotation = direction.angle()
-	attackArea.get_node("Sprite").play()
+	if sword.get_node("Sprite").frame == 0: # attack only if animation over
+		var direction := get_local_mouse_position()
+		sword.get_node("Collision").disabled = false
+		sword.rotation = direction.angle()
+		sword.get_node("Sprite").play()
 
 func getInputAxis():
 	if [states.idle, states.move].has(state):
@@ -57,5 +64,5 @@ func getInputAxis():
 		)
 
 func _on_Sprite_animation_finished():
-	attackArea.get_node("Sprite").stop()
-	attackArea.get_node("Sprite").frame = 0
+	sword.get_node("Sprite").stop()
+	sword.get_node("Sprite").frame = 0

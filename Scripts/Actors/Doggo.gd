@@ -121,11 +121,8 @@ func wander(delta):
 	var _len = displacement.length()
 	displacement.x = cos(wanderAngle) * _len
 	displacement.y = sin(wanderAngle) * _len
-	
 	wanderAngle += (randf() * angleChange) - (angleChange * 0.5)
-	
 	motionAxis = (circleCenter + displacement) - global_position
-	
 	move(delta)
 
 func shouldFollow() -> bool:
