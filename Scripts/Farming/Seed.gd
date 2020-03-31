@@ -1,6 +1,7 @@
 extends Plant
 
-const Crop = preload("res://Scripts/Planting/Crop.gd")
+var Crop = load("res://Scripts/Farming/Crop.gd")
+
 """
 seedType - the current seed equipped from inventory
 when inventory management system is made later make sure
@@ -24,6 +25,7 @@ func _process(delta):
 
 # Plants seed on dirt/wetdirt tile
 func plantCrop() -> void:
+	
 	if(tilemap.get_cellv(player_pos) in [TileType.DIRT,TileType.WETDIRT] and toolbar.getcurrentTool()==toolbar.getTools().RAKE):
 		# Plant crop into dirt if there isn't already one planted
 		if(!cropMatchesPlayer()):

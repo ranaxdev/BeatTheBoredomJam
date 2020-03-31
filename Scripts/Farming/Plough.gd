@@ -21,6 +21,7 @@ func _ready():
 	ploughTimer.set_one_shot(true)
 	ploughTimer.set_wait_time(ploughDelay)
 	ploughTimer.connect("timeout",self,"_onPloughTimerComplete")
+	
 	add_child(ploughTimer)
 	
 	# Revert timer setup
