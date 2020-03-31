@@ -39,3 +39,9 @@ script = ExtResource( 6 )
 
 [node name="Plough" type="Sprite" parent="."]
 script = ExtResource( 3 )
+
+[node name="Enemy2" parent="." instance=ExtResource( 7 )]
+position = Vector2( 960, 440 )
+
+[node name="Enemy3" parent="." instance=ExtResource( 7 )]
+position = Vector2( 80, 456 )
