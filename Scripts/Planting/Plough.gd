@@ -55,11 +55,11 @@ func plough() -> void:
 		# Restart timers
 		ploughTimer.start()
 		revertTimer.start()
-
+	
 
 # Water dirt tile (and start growth if crop planted)
 func water() -> void:
-	if(Input.is_action_just_pressed("ui_accept") and tilemap.get_cellv(player_pos)==TileType.DIRT):
+	if(Input.is_action_just_pressed("ui_accept") and tilemap.get_cellv(player_pos) in [TileType.DIRT,TileType.WETDIRT]):
 		# Start growing crops if watered
 		for i in get_node("../Seed/").getPlantedCrops():
 			if(i.getPos()==player_pos):

@@ -6,7 +6,7 @@ var currentStage:int=0; # current stage of growth
 var growTimer:Timer=null;
 var growthDelay:float = 3.0
 var pos:Vector2; # Position vector in world units
-
+var watered:bool = false
 # Texture stuff (Fix later)
 var tempTexture:Texture;
 var crop1tex = preload("res://Assets/crop/crop1.png")
@@ -50,8 +50,10 @@ func _onGrowTimerComplete()->void:
 
 # Enable grow timer when watered
 func setWatered() -> void:
-	growTimer.start()
-	print("started")
+	if(!watered):
+		growTimer.start()
+		watered=true
+		print("started")
 
 #***GETTERS***
 

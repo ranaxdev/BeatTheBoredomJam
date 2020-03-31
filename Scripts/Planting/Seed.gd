@@ -24,7 +24,7 @@ func _process(delta):
 
 # Plants seed on dirt tile
 func plantCrop() -> void:
-	if(tilemap.get_cellv(player_pos)==TileType.DIRT and toolbar.getcurrentTool()==toolbar.getTools().RAKE):
+	if(tilemap.get_cellv(player_pos) in [TileType.DIRT,TileType.WETDIRT] and toolbar.getcurrentTool()==toolbar.getTools().RAKE):
 		# Plant crop into dirt if there isn't already one planted
 		if(!cropMatchesPlayer()):
 			var crop = Crop.new(1,player_pos)
@@ -32,7 +32,9 @@ func plantCrop() -> void:
 			plantedCrops.append(crop)
 			# Update dirt tile empty status
 			get_node("../Plough/").dirtTileEmpty[player_pos]=false
-
+			# If it was wet dirt, just start growing
+			if(tilemap.get_cellv(player_pos)==TileType.WETDIRT):
+				crop.setWatered()
 
 # Return true if overlap between player and a crop
 func cropMatchesPlayer() -> bool:
