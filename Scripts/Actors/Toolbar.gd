@@ -2,8 +2,10 @@ extends Sprite
 
 enum Tools {PICKAXE, SWORD, RAKE, WATER}
 var currentTool = Tools.PICKAXE
+var cropAmount:int = 0
 var textToDisplay = "PICKAXE"
 var font:Font; #temp
+
 #***CREATE EVENT***
 func _ready():
 	#temp
@@ -14,7 +16,7 @@ func _ready():
 func _process(_delta):
 	_switchTexture()
 	$toolLabel.set_text(textToDisplay)
-
+	$cropLabel.set_text(str(cropAmount)+" CROPS")
 #Switch texture depending on currentTool
 func _switchTexture():
 	#Pickaxe

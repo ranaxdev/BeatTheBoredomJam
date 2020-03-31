@@ -53,7 +53,6 @@ func setWatered() -> void:
 	if(!watered):
 		growTimer.start()
 		watered=true
-		print("started")
 
 #***GETTERS***
 

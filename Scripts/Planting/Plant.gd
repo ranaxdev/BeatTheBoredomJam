@@ -1,4 +1,4 @@
-extends Sprite
+extends Node2D
 class_name Plant
 
 onready var tilemap:TileMap = $"/root/World/NavMap/TileMap"
