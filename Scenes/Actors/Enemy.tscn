@@ -1,8 +1,11 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Assets/goblin_spritesheet.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Actors/Enemy.gd" type="Script" id=2]
 [ext_resource path="res://Scripts/Actors/Healthbar.gd" type="Script" id=3]
+[ext_resource path="res://Assets/healthbar/over.png" type="Texture" id=4]
+[ext_resource path="res://Assets/healthbar/under.png" type="Texture" id=5]
+[ext_resource path="res://Assets/healthbar/progress.png" type="Texture" id=6]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 1 )
@@ -95,6 +98,9 @@ extents = Vector2( 22.8548, 23.631 )
 [sub_resource type="CircleShape2D" id=20]
 radius = 300.0
 
+[sub_resource type="CircleShape2D" id=21]
+radius = 48.0
+
 [node name="Enemy" type="KinematicBody2D"]
 collision_layer = 2
 collision_mask = 7
@@ -127,6 +133,13 @@ collision_layer = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetect"]
 shape = SubResource( 20 )
 
+[node name="DamageZone" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageZone"]
+shape = SubResource( 21 )
+
 [node name="knockbackTimer" type="Timer" parent="."]
 wait_time = 0.8
 one_shot = true
@@ -141,11 +154,18 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Healthbar" type="TextureProgress" parent="."]
-margin_left = -24.0
-margin_top = -80.0
-margin_right = 24.0
-margin_bottom = -40.0
+[node name="HealthNode" type="Node2D" parent="."]
+scale = Vector2( 0.3, 0.2 )
+
+[node name="Healthbar" type="TextureProgress" parent="HealthNode"]
+margin_left = -80.0
+margin_top = -200.0
+margin_right = 80.0
+margin_bottom = -136.0
+texture_under = ExtResource( 5 )
+texture_over = ExtResource( 4 )
+texture_progress = ExtResource( 6 )
+fill_mode = 6
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
