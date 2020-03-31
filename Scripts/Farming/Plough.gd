@@ -1,7 +1,5 @@
 extends Plant
 
-var dirtTexture:Texture = preload("res://Assets/tempdirt.png")
-
 # Dirt tiles empty or not (dont have crops on them)
 var dirtTileEmpty= {}
 

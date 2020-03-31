@@ -37,6 +37,9 @@ func _switchTexture():
 		textToDisplay = "WATER"
 	update()
 
+# Add to crop amount
+func addCropAmount()->void:
+	cropAmount+=1
 
 #***GETTERS***
 

@@ -25,7 +25,6 @@ func _process(delta):
 
 # Plants seed on dirt/wetdirt tile
 func plantCrop() -> void:
-	
 	if(tilemap.get_cellv(player_pos) in [TileType.DIRT,TileType.WETDIRT] and toolbar.getcurrentTool()==toolbar.getTools().RAKE):
 		# Plant crop into dirt if there isn't already one planted
 		if(!cropMatchesPlayer()):

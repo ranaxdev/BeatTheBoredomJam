@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scenes/Actors/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/World.gd" type="Script" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Scenes/Actors/Doggo.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scripts/Farming/Seed.gd" type="Script" id=6]
 [ext_resource path="res://Scripts/Farming/Farming.gd" type="Script" id=7]
+[ext_resource path="res://Scripts/Farming/Harvest.gd" type="Script" id=8]
 
 [node name="World" type="Node"]
 script = ExtResource( 2 )
@@ -39,3 +40,6 @@ script = ExtResource( 6 )
 
 [node name="Plough" type="Node2D" parent="Farming"]
 script = ExtResource( 3 )
+
+[node name="Harvest" type="Node2D" parent="Farming"]
+script = ExtResource( 8 )

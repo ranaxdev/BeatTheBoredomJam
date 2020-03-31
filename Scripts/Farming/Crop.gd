@@ -7,6 +7,7 @@ var growTimer:Timer=null;
 var growthDelay:float = 3.0
 var pos:Vector2; # Position vector in world units
 var watered:bool = false
+
 # Texture stuff (Fix later)
 var tempTexture:Texture;
 var crop1tex = preload("res://Assets/crop/crop1.png")
