@@ -7,8 +7,6 @@
 radius = 31.0
 
 [node name="Doggo" type="KinematicBody2D"]
-collision_layer = 4
-collision_mask = 7
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

@@ -23,34 +23,6 @@ func move(delta):
 	applyMovement(motionAxis * acceleration * delta)
 	motion = move_and_slide(motion)
 
-"""
-	~~~ DAMAGE / HEALTH LOGIC ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-"""
-
-signal healthUpdated(health)
-signal killed()
-
-export var maxHealth = 100
-onready var health = maxHealth setget setHealth
-
-func damage(amount):
-	setHealth(health - amount)
-
-func kill():
-	pass
-
-func healthUpdated():
-	pass
-
-func setHealth(val):
-	var prevHealth = health
-	health = clamp(val, 0, 100)
-	if health != prevHealth:
-		emit_signal("healthUpdated", health)
-		if health == 0:
-			kill()
-			emit_signal("killed")
-
 """ 
 	~~~ STATE MACHINE ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 """
