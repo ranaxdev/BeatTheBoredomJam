@@ -1,23 +1,13 @@
 extends TextureProgress
 
-const MAX_HEALTH:int = 100;
+class_name Healthbar
 
-onready var viewport_size:Vector2 = get_parent().get_viewport_rect().size
-onready var tilemap:TileMap = $"/root/World/NavMap/TileMap"
-onready var player:Actor = self.get_parent().get_parent()
-
-# preload bar textures
-var overImg:Texture = preload("res://Assets/healthbar/over.png")
-var underImg:Texture = preload("res://Assets/healthbar/under.png")
-var progressImg:Texture = preload("res://Assets/healthbar/progress.png")
-
-var currentHealth:int = 100;
-
+onready var MAX_HEALTH = get_parent().get_parent().maxHealth
 
 func _ready():
 	self.set_max(MAX_HEALTH) # Set bar's max val
 	self.set_value(MAX_HEALTH) # Start with full health
-	 
+
 	# Set bar textures
 	self.set_over_texture(overImg)
 	self.set_under_texture(underImg)
@@ -37,3 +27,6 @@ func _process(delta):
 		currentHealth+=0.5
 
 
+
+func _process(delta):
+	self.set_value(float(get_parent().get_parent().health))
