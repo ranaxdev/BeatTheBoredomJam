@@ -17,17 +17,17 @@ _global_script_classes=[ {
 "base": "Plant",
 "class": "Crop",
 "language": "GDScript",
-"path": "res://Scripts/Planting/Crop.gd"
+"path": "res://Scripts/Farming/Crop.gd"
 }, {
 "base": "TextureProgress",
 "class": "Healthbar",
 "language": "GDScript",
 "path": "res://Scripts/Actors/Healthbar.gd"
 }, {
-"base": "Sprite",
+"base": "Node2D",
 "class": "Plant",
 "language": "GDScript",
-"path": "res://Scripts/Planting/Plant.gd"
+"path": "res://Scripts/Farming/Plant.gd"
 } ]
 _global_script_class_icons={
 "Actor": "",

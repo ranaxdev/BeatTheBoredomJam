@@ -1,37 +1,45 @@
 extends Sprite
 
-enum Tools {PICKAXE, SWORD, RAKE}
+enum Tools {PICKAXE, SWORD, RAKE, WATER}
 var currentTool = Tools.PICKAXE
-
-var toolbarImg:Texture = preload("res://Assets/temptoolbar.png")
-var toolbarWidth:int = 80
-var toolbarHeight:int = 32
+var cropAmount:int = 0
+var textToDisplay = "PICKAXE"
+var font:Font; #temp
 
 #***CREATE EVENT***
 func _ready():
-	pass
+	#temp
+	$toolLabel.set_size(Vector2(64,64))
+	
 
 #***UPDATE EVENT***
 func _process(_delta):
 	_switchTexture()
-
+	$toolLabel.set_text(textToDisplay)
+	$cropLabel.set_text(str(cropAmount)+" CROPS")
 #Switch texture depending on currentTool
 func _switchTexture():
 	#Pickaxe
 	if(Input.is_key_pressed(KEY_1)):
 		currentTool=Tools.PICKAXE
-		set_region_rect(Rect2(0,0,toolbarWidth,toolbarHeight))
-	
+		textToDisplay = "PICKAXE"
 	#Sword
 	elif(Input.is_key_pressed(KEY_2)):
 		currentTool=Tools.SWORD
-		set_region_rect(Rect2(toolbarWidth,0,toolbarWidth,toolbarHeight))
-	
+		textToDisplay = "SWORD"
 	#Rake
 	elif(Input.is_key_pressed(KEY_3)):
 		currentTool=Tools.RAKE
-		set_region_rect(Rect2(toolbarWidth*2,0,toolbarWidth,toolbarHeight))
+		textToDisplay = "RAKE"
+	#Water
+	elif(Input.is_key_pressed(KEY_4)):
+		currentTool=Tools.WATER
+		textToDisplay = "WATER"
+	update()
 
+# Add to crop amount
+func addCropAmount()->void:
+	cropAmount+=1
 
 #***GETTERS***
 
