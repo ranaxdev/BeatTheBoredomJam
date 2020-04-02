@@ -1,7 +1,7 @@
 extends Plant
 
 var Crop = load("res://Scripts/Farming/Crop.gd")
-
+onready var inventory = self.get_node("../../Inventory/ItemDB")
 """
 seedType - the current seed equipped from inventory
 when inventory management system is made later make sure
@@ -19,7 +19,7 @@ func _ready():
 #***UPDATE EVENT***
 func _process(delta):
 	# Seed is equipped and space pressed
-	if(seedSelected and Input.is_action_just_pressed("ui_accept")):
+	if(inventory.is_this_equipped("WHEAT_SEED") and Input.is_action_just_pressed("ui_accept")):
 		plantCrop()
 
 
