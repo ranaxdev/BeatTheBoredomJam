@@ -1,0 +1,70 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scripts/Inventory/ItemList.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Inventory/ItemDB.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/Inventory/Inventory.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/Inventory/Equip.gd" type="Script" id=4]
+
+[node name="Inventory" type="Control"]
+margin_left = -18.6076
+margin_top = -19.215
+margin_right = 21.3925
+margin_bottom = 20.785
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemList" type="ItemList" parent="."]
+margin_left = -166.721
+margin_top = -94.8454
+margin_right = 203.279
+margin_bottom = 141.155
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemDB" type="Node" parent="."]
+script = ExtResource( 2 )
+
+[node name="Equip" type="Panel" parent="."]
+margin_left = 210.0
+margin_top = -94.0
+margin_right = 372.0
+margin_bottom = 139.0
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Selected" type="TextureRect" parent="Equip"]
+margin_left = 46.4869
+margin_top = 49.5519
+margin_right = 110.487
+margin_bottom = 113.552
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="Equip"]
+margin_left = 31.0867
+margin_top = 191.347
+margin_right = 132.087
+margin_bottom = 217.347
+text = "EQUIP"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Equip"]
+margin_left = 13.5325
+margin_top = 135.0
+margin_right = 145.533
+margin_bottom = 164.0
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

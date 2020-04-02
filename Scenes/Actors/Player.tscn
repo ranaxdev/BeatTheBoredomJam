@@ -141,7 +141,7 @@ position = Vector2( 1.90735e-06, 1.90735e-06 )
 scale = Vector2( 4, 4 )
 frames = SubResource( 20 )
 animation = "damage"
-frame = 4
+frame = 3
 playing = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -149,7 +149,6 @@ current = true
 
 [node name="Toolbar" type="Sprite" parent="Camera2D"]
 position = Vector2( 478.2, -291.429 )
-z_index = 999
 region_enabled = true
 region_rect = Rect2( 0, 0, 80, 32 )
 script = ExtResource( 3 )

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/crop2.png-87d96e5b0aa82109db0334f48e9441ad.stex"
+path="res://.import/wheat.png-5b571d261dc26e858507340dff79209a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/crop/crop2.png"
-dest_files=[ "res://.import/crop2.png-87d96e5b0aa82109db0334f48e9441ad.stex" ]
+source_file="res://Assets/crop/wheat.png"
+dest_files=[ "res://.import/wheat.png-5b571d261dc26e858507340dff79209a.stex" ]
 
 [params]
 

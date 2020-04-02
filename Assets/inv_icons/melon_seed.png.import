@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/crop3.png-a1c7f9781a96016263927a5fc83ca32c.stex"
+path="res://.import/melon_seed.png-9377fe967bea5d1fed6ef6b4cae316b0.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/crop/crop3.png"
-dest_files=[ "res://.import/crop3.png-a1c7f9781a96016263927a5fc83ca32c.stex" ]
+source_file="res://Assets/inv_icons/melon_seed.png"
+dest_files=[ "res://.import/melon_seed.png-9377fe967bea5d1fed6ef6b4cae316b0.stex" ]
 
 [params]
 
