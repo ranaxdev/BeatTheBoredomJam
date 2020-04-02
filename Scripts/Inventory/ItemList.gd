@@ -12,10 +12,11 @@ func _ready():
 	set_item_metadata(1, "CYANIDE")
 	add_item("Melon Seeds"+str(ITEMS.get_amount("MELON_SEED")),ITEMS.get_texture("MELON_SEED"))
 	set_item_metadata(2,"MELON_SEED")
+
+
 func _process(delta):
 	if(self.is_anything_selected() and equipButton.pressed):
 		ITEMS.set_equipped(get_item_metadata(get_selected_items()[0]))
-		print(ITEMS.get_equipped())
 	
 	# Update items
 	_update_item_amounts()
