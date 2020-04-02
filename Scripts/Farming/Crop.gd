@@ -1,28 +1,45 @@
 extends Plant
 class_name Crop
 
+# Load crop textures
+var melonTexture:Texture = preload("res://Assets/crop/watermelon.png")
+var wheatTexture:Texture = preload("res://Assets/crop/wheat.png")
+
+# Dictionary of crops
+var CROPS = {
+	# WHEAT
+	0 : {
+		"seed" : "WHEAT_SEED",
+		"texture" : wheatTexture,
+		"growtime" : 5
+	}
+	,
+	# MELON
+	1 : {
+		"seed" : "MELON_SEED",
+		"texture" : melonTexture,
+		"growtime" : 10
+	}
+}
+
 var cropType:int;
+
 var currentStage:int=0; # current stage of growth
 var growTimer:Timer=null;
 var growthDelay:float = 3.0
 var pos:Vector2; # Position vector in world units
 var watered:bool = false
+var cropTexture;
+var xregion=0 # Start of sprite sheet (advance as grow stage increases)
 
-# Texture stuff (Fix later)
-var tempTexture:Texture;
-var crop1tex = preload("res://Assets/crop/crop1.png")
-var crop2tex = preload("res://Assets/crop/crop2.png")
-var crop3tex = preload("res://Assets/crop/crop3.png")
-
-var growTextures = [crop1tex,crop2tex,crop3tex]
 # Constructor
-func _init(crop:int=1, mappos:Vector2=Vector2()):
-	cropType=crop #Crop type default 1
+func _init(seed_name:String, mappos:Vector2=Vector2()):
+	cropType = self.getCropTypeBySeed(seed_name)
+	cropTexture = CROPS.get(cropType).get("texture")
 	pos = mappos
 
 #***CREATE EVENT***
 func _ready():
-	tempTexture = crop1tex; #initially its a seed texture
 	# Timer to get to next stage (growing)
 	growTimer = Timer.new()
 	growTimer.set_one_shot(true)
@@ -33,8 +50,7 @@ func _ready():
 
 #***RENDER***
 func _draw():
-	draw_texture(tempTexture,tilemap.map_to_world(pos))
-
+	draw_texture_rect_region(cropTexture,Rect2(tilemap.map_to_world(pos),Vector2(64,64)),Rect2(xregion,0,64,64))
 #***UPDATE***
 func _process(delta):
 	pass
@@ -44,7 +60,7 @@ func _process(delta):
 func _onGrowTimerComplete()->void:
 	currentStage+=1
 	if(currentStage!=3):
-		tempTexture = growTextures[currentStage] #Advance texture
+		xregion+=64
 		update() #Redraw texture
 		growTimer.start()
 		
@@ -67,3 +83,9 @@ func readyToHarvest() -> bool:
 		return true
 	return false
 
+# Get crop type by seed given
+func getCropTypeBySeed(seed_name:String) -> int:
+	for i in CROPS:
+		if(CROPS.get(i).get("seed")==seed_name):
+			return i
+	return 0

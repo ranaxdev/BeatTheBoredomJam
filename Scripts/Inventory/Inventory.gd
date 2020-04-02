@@ -7,8 +7,10 @@ onready var player = self.get_parent().get_node("./Player")
 
 # *** CREATE EVENT ***
 func _ready():
+	# Initially inventory is closed (not visible)
 	itemlist.visible = false
 	equip.visible = false
+	
 	pause_mode = Node.PAUSE_MODE_PROCESS #Whitelist pause mode
 
 # *** UPDATE EVENT ***
@@ -38,5 +40,3 @@ func _process(delta):
 	else:
 		get_tree().paused=false
 
-
-# Sets item to currently equipped
