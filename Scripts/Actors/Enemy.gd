@@ -4,11 +4,11 @@ onready var charSprite := $Sprite
 onready var weapon := $Weapon
 onready var weaponTimer := $WeaponTimer
 onready var knockbackTimer := $KnockbackTimer
+onready var knockbackTween := $KnockTween
 onready var player : KinematicBody2D = $"/root/World/Player"
 onready var nav2d : Navigation2D = $"/root/World/NavMap"
 var isKnockbacked = false;
 var knockbackDirection : Vector2
-var isVulnerable = true
 var shouldFollow = false
 var canAttack = true
 
@@ -26,11 +26,11 @@ func stateLogic(delta):
 	if canAttack:
 		weapon.get_node("Collision").disabled = false
 		attack()
+	else:
+		weapon.get_node("Collision").disabled = true
 	if state == states.following:
 		follow(delta)
-	if state == states.knockback:
-		knockback(delta)
-	
+		
 func getTransition(delta):
 	match state:
 		states.idle:
@@ -58,8 +58,7 @@ func enterState(new, old):
 		states.following:
 			charSprite.play("walk")
 		states.knockback:
-			knockbackDirection = (global_position - player.global_position).normalized()
-			isVulnerable = false
+			knockback()
 			charSprite.play("knockback")
 	
 func exitState(old, new):
@@ -69,7 +68,6 @@ func exitState(old, new):
 		states.following:
 			charSprite.stop()
 		states.knockback:
-			isVulnerable = true
 			charSprite.stop()
 
 func follow(delta):
@@ -85,19 +83,25 @@ func attack():
 		var dir = player.global_position - global_position
 		weapon.rotation = dir.angle()
 
-func knockback(delta):
-	motionAxis = knockbackDirection * 500
-	knockbackDirection = Vector2.ZERO
-	move(delta)
+func knockback():
+	knockbackDirection = global_position - player.global_position
+	knockbackTween.interpolate_property(
+			self, #object
+			"position", #property
+			global_position, #start
+			knockbackDirection + global_position, #end
+			1, #duration
+			Tween.TRANS_BOUNCE, #type
+			Tween.EASE_OUT) #type
+	knockbackTween.start()
 
 func kill():
 	self.queue_free()
 
 func _on_HurtBox_area_entered(area):
-	if isVulnerable:
-		knockbackTimer.start()
-		isKnockbacked = true
-		damage(30)
+	knockbackTimer.start()
+	isKnockbacked = true
+	damage(30)
 
 func _on_knockbackTimer_timeout():
 	isKnockbacked = false
@@ -107,7 +111,6 @@ func _on_PlayerDetect_body_entered(body):
 		shouldFollow = true
 
 func _on_Weapon_area_entered(area):
-	weapon.get_node("Collision").disabled = true
 	canAttack = false
 	weaponTimer.start()
 

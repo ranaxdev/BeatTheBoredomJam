@@ -90,7 +90,7 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=18]
-extents = Vector2( 24, 7.60492 )
+extents = Vector2( 15.7572, 7.60492 )
 
 [sub_resource type="CircleShape2D" id=22]
 radius = 36.3984
@@ -118,6 +118,7 @@ position = Vector2( 0, 17 )
 shape = SubResource( 18 )
 
 [node name="HurtBox" type="Area2D" parent="."]
+rotation = -0.000368325
 collision_layer = 0
 collision_mask = 8
 
@@ -129,7 +130,7 @@ shape = SubResource( 22 )
 collision_layer = 2
 
 [node name="Collision" type="CollisionShape2D" parent="Weapon"]
-position = Vector2( 32, 0 )
+position = Vector2( 20, 0 )
 shape = SubResource( 23 )
 disabled = true
 
@@ -166,6 +167,8 @@ script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="KnockTween" type="Tween" parent="."]
 [connection signal="area_entered" from="HurtBox" to="." method="_on_HurtBox_area_entered"]
 [connection signal="area_entered" from="Weapon" to="." method="_on_Weapon_area_entered"]
 [connection signal="timeout" from="KnockbackTimer" to="." method="_on_knockbackTimer_timeout"]

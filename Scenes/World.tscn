@@ -42,7 +42,7 @@ position = Vector2( 704, 704 )
 acceleration = 3000
 
 [node name="Enemy" parent="." instance=ExtResource( 9 )]
-position = Vector2( 640, 536 )
+position = Vector2( 256, 600 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 145.115, 880.87 )

@@ -141,7 +141,7 @@ position = Vector2( 1.90735e-06, 1.90735e-06 )
 scale = Vector2( 4, 4 )
 frames = SubResource( 20 )
 animation = "damage"
-frame = 5
+frame = 1
 playing = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -200,7 +200,7 @@ frame = 4
 [node name="HurtBox" type="Area2D" parent="."]
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+[node name="Collision" type="CollisionShape2D" parent="HurtBox"]
 shape = SubResource( 26 )
 
 [node name="HealthNode" type="Node2D" parent="."]
