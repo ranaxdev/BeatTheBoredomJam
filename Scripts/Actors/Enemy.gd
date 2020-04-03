@@ -8,7 +8,6 @@ onready var knockbackTween := $KnockTween
 onready var player : KinematicBody2D = $"/root/World/Player"
 onready var nav2d : Navigation2D = $"/root/World/NavMap"
 var isKnockbacked = false;
-var knockbackDirection : Vector2
 var shouldFollow = false
 var canAttack = true
 
@@ -84,13 +83,13 @@ func attack():
 		weapon.rotation = dir.angle()
 
 func knockback():
-	knockbackDirection = global_position - player.global_position
+	var knockbackPoint = global_position - player.global_position
 	knockbackTween.interpolate_property(
 			self, #object
 			"position", #property
 			global_position, #start
-			knockbackDirection + global_position, #end
-			1, #duration
+			knockbackPoint + global_position, #end
+			knockbackTimer.wait_time, #duration
 			Tween.TRANS_BOUNCE, #type
 			Tween.EASE_OUT) #type
 	knockbackTween.start()
