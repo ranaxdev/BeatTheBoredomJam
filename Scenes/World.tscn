@@ -41,17 +41,11 @@ script = ExtResource( 8 )
 position = Vector2( 704, 704 )
 acceleration = 3000
 
+[node name="Enemy" parent="." instance=ExtResource( 9 )]
+position = Vector2( 640, 536 )
+
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 145.115, 880.87 )
-
-[node name="Enemy" parent="." instance=ExtResource( 9 )]
-position = Vector2( 496, 328 )
-
-[node name="Enemy2" parent="." instance=ExtResource( 9 )]
-position = Vector2( 960, 440 )
-
-[node name="Enemy3" parent="." instance=ExtResource( 9 )]
-position = Vector2( 80, 456 )
 
 [node name="Inventory" parent="." instance=ExtResource( 10 )]
 anchor_left = 0.126

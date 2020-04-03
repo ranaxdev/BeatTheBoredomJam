@@ -1,12 +1,16 @@
 extends Actor
 
-onready var charSprite = $Sprite
+onready var charSprite := $Sprite
+onready var weapon := $Weapon
+onready var weaponTimer := $WeaponTimer
+onready var knockbackTimer := $KnockbackTimer
 onready var player : KinematicBody2D = $"/root/World/Player"
 onready var nav2d : Navigation2D = $"/root/World/NavMap"
 var isKnockbacked = false;
 var knockbackDirection : Vector2
 var isVulnerable = true
 var shouldFollow = false
+var canAttack = true
 
 func _ready():
 	addState("idle")
@@ -19,6 +23,9 @@ func stateLogic(delta):
 	for key in states:
 		if states[key] == state:
 			$Label.set_text(key)
+	if canAttack:
+		weapon.get_node("Collision").disabled = false
+		attack()
 	if state == states.following:
 		follow(delta)
 	if state == states.knockback:
@@ -73,6 +80,11 @@ func follow(delta):
 		motionAxis = motionAxis.normalized()
 	move(delta)
 
+func attack():
+	if canAttack:
+		var dir = player.global_position - global_position
+		weapon.rotation = dir.angle()
+
 func knockback(delta):
 	motionAxis = knockbackDirection * 500
 	knockbackDirection = Vector2.ZERO
@@ -83,7 +95,7 @@ func kill():
 
 func _on_HurtBox_area_entered(area):
 	if isVulnerable:
-		$knockbackTimer.start()
+		knockbackTimer.start()
 		isKnockbacked = true
 		damage(30)
 
@@ -93,3 +105,11 @@ func _on_knockbackTimer_timeout():
 func _on_PlayerDetect_body_entered(body):
 	if body == player:
 		shouldFollow = true
+
+func _on_Weapon_area_entered(area):
+	weapon.get_node("Collision").disabled = true
+	canAttack = false
+	weaponTimer.start()
+
+func _on_WeaponTimer_timeout():
+	canAttack = true

@@ -52,7 +52,9 @@ func enterState(new, old):
 		states.move:
 			charSprite.play("walk")
 		states.damaged:
-			charSprite.play("walk")
+			isVulnerable = true
+			damage(30)
+			charSprite.play("damage")
 	
 func exitState(old, new):
 	match old:
@@ -62,7 +64,6 @@ func exitState(old, new):
 			charSprite.stop()
 		states.damaged:
 			isVulnerable = true
-			isDamaged = false
 			charSprite.stop()
 
 func attack():
@@ -87,6 +88,8 @@ func _on_Sprite_animation_finished():
 	sword.get_node("Sprite").frame = 0
 
 func _on_HurtBox_area_entered(area):
+	$DmgTimer.start()
 	isDamaged = true
-	isVulnerable = false
-	damage(30)
+
+func _on_DmgTimer_timeout():
+	isDamaged = false
