@@ -3,6 +3,7 @@ extends ItemList
 onready var ITEMS = get_node("../ItemDB")
 onready var equipButton = get_node("../Equip/Button")
 onready var unequipButton = get_node("../Equip/UnequipButton")
+
 func _ready():
 	add_to_inv(1,"MELON_SEED")
 	add_to_inv(1,"MELON_SEED")
@@ -57,8 +58,8 @@ func add_to_inv(amount:int, item_name:String):
 	if(!exists_in_inv(item_name)):
 		add_item(ITEMS.get_formal_name(item_name)+": "+str(ITEMS.get_amount(item_name)),ITEMS.get_texture(item_name))
 		ITEMS.set_amount(item_name,amount) # Update amount
+		# Set item name and usage
 		set_item_metadata(get_item_count()-1,item_name)
-		
 	else:
 		ITEMS.set_amount(item_name,ITEMS.get_amount(item_name)+amount)
 

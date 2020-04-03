@@ -78,3 +78,22 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Tooltip" type="Panel" parent="."]
+margin_left = -165.387
+margin_top = 147.538
+margin_right = 202.613
+margin_bottom = 175.538
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Tooltip"]
+margin_left = 3.38681
+margin_top = 4.0
+margin_right = 364.387
+margin_bottom = 26.0
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

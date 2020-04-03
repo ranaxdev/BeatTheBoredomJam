@@ -21,21 +21,24 @@ var ITEMS = {
 	"WHEAT_SEED" : {
 		"amount" : 3,
 		"formal" : "Wheat seeds",
-		"texture" : wheat_texture
+		"texture" : wheat_texture,
+		"usage" : "With RAKE equipped, press SPACE on dirt"
 	}
 	,
 	# Melon seeds
 	"MELON_SEED" : {
 		"amount" : 0,
 		"formal" : "Melon seeds",
-		"texture" : melon_texture
+		"texture" : melon_texture,
+		"usage" : "With RAKE equipped, press SPACE on dirt"
 	}
 	,
 	# Cock seeds
 	"COCK_SEED" : {
 		"amount" : 0,
 		"formal" : "Cock seeds",
-		"texture" : cock_texture
+		"texture" : cock_texture,
+		"usage" : "With RAKE equipped, press SPACE on dirt"
 	}
 	,
 	# Cyanide pills (temp)
@@ -110,3 +113,7 @@ func get_amount(item_name:String) -> int:
 # Get formal name
 func get_formal_name(item_name:String) -> String:
 	return ITEMS.get(item_name).get("formal")
+
+# Get usge
+func get_usage(item_name:String) -> String:
+	return ITEMS.get(item_name).get("usage")
