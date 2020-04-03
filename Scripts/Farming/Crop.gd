@@ -4,7 +4,7 @@ class_name Crop
 # Load crop textures
 var melonTexture:Texture = preload("res://Assets/crop/watermelon.png")
 var wheatTexture:Texture = preload("res://Assets/crop/wheat.png")
-
+var cockTexture:Texture = preload("res://Assets/crop/cock.png")
 # Dictionary of crops
 var CROPS = {
 	# WHEAT
@@ -19,6 +19,13 @@ var CROPS = {
 		"seed" : "MELON_SEED",
 		"texture" : melonTexture,
 		"growtime" : 10
+	}
+	,
+	# COCK
+	2 : {
+		"seed" : "COCK_SEED",
+		"texture" : cockTexture,
+		"growtime" : 50
 	}
 }
 

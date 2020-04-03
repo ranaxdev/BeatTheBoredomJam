@@ -13,3 +13,10 @@ func set_selected_texture(tex:Texture)->void:
 # Set text for the equipped item
 func set_label_text(text:String)->void:
 	equippedText.set_text(text)
+
+# Update all children
+func update_children() -> void:
+	selected.set_texture(null)
+	equippedText.set_text("")
+	selected.update()
+	equippedText.update()

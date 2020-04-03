@@ -33,7 +33,11 @@ func _process(delta):
 	if(itemdb.is_equipped()):
 		equip.set_selected_texture(itemdb.get_texture(itemdb.get_equipped()))
 		equip.set_label_text(itemdb.get_formal_name(itemdb.get_equipped()))
-
+	
+	# Update equip display
+	if(!itemdb.is_equipped()):
+		equip.update_children()
+	
 	# Pause rest of the game
 	if(itemlist.visible):
 		get_tree().paused=true

@@ -11,6 +11,7 @@ Structure of item database:
 var wheat_texture:Texture = preload("res://Assets/inv_icons/wheat_seed.png")
 var melon_texture:Texture = preload("res://Assets/inv_icons/melon_seed.png")
 var cyanide_texture:Texture = preload("res://Assets/inv_icons/cyanide.png")
+var cock_texture:Texture = preload("res://Assets/inv_icons/cock_seed.png")
 
 var equipped = null
 
@@ -18,16 +19,23 @@ var equipped = null
 var ITEMS = {
 	# Wheat seeds
 	"WHEAT_SEED" : {
-		"amount" : 20,
+		"amount" : 3,
 		"formal" : "Wheat seeds",
 		"texture" : wheat_texture
 	}
 	,
 	# Melon seeds
 	"MELON_SEED" : {
-		"amount" : 15,
+		"amount" : 0,
 		"formal" : "Melon seeds",
 		"texture" : melon_texture
+	}
+	,
+	# Cock seeds
+	"COCK_SEED" : {
+		"amount" : 0,
+		"formal" : "Cock seeds",
+		"texture" : cock_texture
 	}
 	,
 	# Cyanide pills (temp)
@@ -79,6 +87,10 @@ func are_these_equipped(item_names:Array)->bool:
 # Get currently equipped item
 func get_equipped() -> String:
 	return equipped
+
+# Unequip anything already equipped
+func unequip() -> void:
+	equipped=null
 
 # Get texture
 func get_texture(item_name:String) -> Texture:
