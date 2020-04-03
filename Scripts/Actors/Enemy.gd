@@ -23,7 +23,7 @@ func stateLogic(delta):
 	for key in states:
 		if states[key] == state:
 			$Label.set_text(key)
-	if canAttack:
+	if canAttack && state != states.knockback:
 		weapon.get_node("Collision").disabled = false
 		attack()
 	else:
