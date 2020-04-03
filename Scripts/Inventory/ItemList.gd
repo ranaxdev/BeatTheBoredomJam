@@ -2,7 +2,7 @@ extends ItemList
 
 onready var ITEMS = get_node("../ItemDB")
 onready var equipButton = get_node("../Equip/Button")
-
+onready var unequipButton = get_node("../Equip/UnequipButton")
 func _ready():
 	add_to_inv(1,"MELON_SEED")
 	add_to_inv(1,"MELON_SEED")
@@ -19,19 +19,14 @@ func _ready():
 	add_to_inv(1, "WHEAT_SEED")
 	add_to_inv(1, "WHEAT_SEED")
 
-func add_to_inv(amount:int, item_name:String):
-	if(!exists_in_inv(item_name)):
-		add_item(ITEMS.get_formal_name(item_name)+": "+str(ITEMS.get_amount(item_name)),ITEMS.get_texture(item_name))
-		ITEMS.set_amount(item_name,amount) # Update amount
-		set_item_metadata(get_item_count()-1,item_name)
-		
-	else:
-		ITEMS.set_amount(item_name,ITEMS.get_amount(item_name)+amount)
 
 # *** UPDATE EVENT ***
 func _process(delta):
 	if(self.is_anything_selected() and equipButton.pressed):
 		ITEMS.set_equipped(get_item_metadata(get_selected_items()[0]))
+	
+	if(ITEMS.is_equipped() and unequipButton.pressed):
+		ITEMS.unequip()
 	
 	# Update items
 	_update_item_amounts()
@@ -55,6 +50,18 @@ func _remove_empty_items() -> void:
 					ITEMS.unequip()
 				# Remove the item from inventory
 				remove_item(i)
+
+
+# Add specified item (meta name) to inventory with amount
+func add_to_inv(amount:int, item_name:String):
+	if(!exists_in_inv(item_name)):
+		add_item(ITEMS.get_formal_name(item_name)+": "+str(ITEMS.get_amount(item_name)),ITEMS.get_texture(item_name))
+		ITEMS.set_amount(item_name,amount) # Update amount
+		set_item_metadata(get_item_count()-1,item_name)
+		
+	else:
+		ITEMS.set_amount(item_name,ITEMS.get_amount(item_name)+amount)
+
 
 # *** GETTERS ***
 

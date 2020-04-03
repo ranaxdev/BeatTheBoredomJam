@@ -58,6 +58,16 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="UnequipButton" type="Button" parent="Equip"]
+margin_left = -108.348
+margin_top = 206.981
+margin_right = -10.3475
+margin_bottom = 232.981
+text = "UNEQUIP"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Label" type="Label" parent="Equip"]
 margin_left = 13.5325
 margin_top = 135.0
