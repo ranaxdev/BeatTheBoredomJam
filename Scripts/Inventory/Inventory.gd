@@ -41,7 +41,7 @@ func _process(delta):
 	
 	# Update unequipped conditions
 	if(!itemdb.is_equipped()):
-		equip.update_children() # Clear equip panel
+		equip.update_children() # Clear equip panel 
 		tooltip_text.set_text("") # Tooltip text to nothing
 	
 	# Pause rest of the game

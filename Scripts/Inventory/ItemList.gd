@@ -38,7 +38,7 @@ func _process(delta):
 func _update_item_amounts() -> void:
 	for i in range(get_item_count()):
 		if(get_item_metadata(i)!=null):
-			set_item_text(i, ITEMS.get_formal_name(get_item_metadata(i))+": "+str(ITEMS.get_amount(get_item_metadata(i))))
+			set_item_text(i, ITEMS.get_formal_name(get_item_metadata(i))+" : "+str(ITEMS.get_amount(get_item_metadata(i))))
 
 
 # Remove items after running out
@@ -56,7 +56,7 @@ func _remove_empty_items() -> void:
 # Add specified item (meta name) to inventory with amount
 func add_to_inv(amount:int, item_name:String):
 	if(!exists_in_inv(item_name)):
-		add_item(ITEMS.get_formal_name(item_name)+": "+str(ITEMS.get_amount(item_name)),ITEMS.get_texture(item_name))
+		add_item(ITEMS.get_formal_name(item_name)+" : "+str(ITEMS.get_amount(item_name)),ITEMS.get_texture(item_name))
 		ITEMS.set_amount(item_name,amount) # Update amount
 		# Set item name and usage
 		set_item_metadata(get_item_count()-1,item_name)

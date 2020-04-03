@@ -1,6 +1,6 @@
 extends Panel
 
-onready var selected = self.get_node("Selected")
+onready var selected = self.get_node("SelectionPanel/Selected")
 onready var equippedText = self.get_node("Label")
 
 func _ready():

@@ -20,32 +20,33 @@ var ITEMS = {
 	# Wheat seeds
 	"WHEAT_SEED" : {
 		"amount" : 3,
-		"formal" : "Wheat seeds",
+		"formal" : "WHEAT SEEDS",
 		"texture" : wheat_texture,
-		"usage" : "With RAKE equipped, press SPACE on dirt"
+		"usage" : "WITH RAKE EQUIPPED PRESS SPACE ON DIRT"
 	}
 	,
 	# Melon seeds
 	"MELON_SEED" : {
 		"amount" : 0,
-		"formal" : "Melon seeds",
+		"formal" : "MELON SEEDS",
 		"texture" : melon_texture,
-		"usage" : "With RAKE equipped, press SPACE on dirt"
+		"usage" : "WITH RAKE EQUIPPED PRESS SPACE ON DIRT"
 	}
 	,
 	# Cock seeds
 	"COCK_SEED" : {
 		"amount" : 0,
-		"formal" : "Cock seeds",
+		"formal" : "COCK SEEDS",
 		"texture" : cock_texture,
-		"usage" : "With RAKE equipped, press SPACE on dirt"
+		"usage" : "WITH RAKE EQUIPPED PRESS SPACE ON DIRT"
 	}
 	,
 	# Cyanide pills (temp)
 	"CYANIDE" : {
 		"amount" : 0,
-		"formal" : "Cyanide",
-		"texture" : cyanide_texture
+		"formal" : "CYANIDE",
+		"texture" : cyanide_texture,
+		"usage" : "NONE"
 	}
 }
 
