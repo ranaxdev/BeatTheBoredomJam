@@ -6,6 +6,7 @@ onready var itemdb = self.get_node("ItemDB")
 onready var player = self.get_parent().get_node("./Player")
 onready var tooltip = get_node("./Tooltip")
 onready var tooltip_text = get_node("./Tooltip/Label")
+
 # *** CREATE EVENT ***
 func _ready():
 	# Initially inventory is closed (not visible)
