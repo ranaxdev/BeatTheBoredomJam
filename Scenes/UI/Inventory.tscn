@@ -7,7 +7,7 @@
 [ext_resource path="res://Stylistic/font.tres" type="DynamicFont" id=5]
 [ext_resource path="res://Stylistic/invbutton.stylebox" type="StyleBox" id=6]
 
-[sub_resource type="StyleBoxFlat" id=3]
+[sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 1, 0.682353, 0.168627, 1 )
 border_width_left = 3
 border_width_top = 3
@@ -15,7 +15,7 @@ border_width_right = 3
 border_width_bottom = 3
 border_color = Color( 1, 0.792157, 0.458824, 1 )
 
-[sub_resource type="StyleBoxFlat" id=4]
+[sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 1, 0.792157, 0.458824, 1 )
 border_width_left = 5
 border_width_top = 5
@@ -23,7 +23,7 @@ border_width_right = 5
 border_width_bottom = 5
 border_color = Color( 1, 0.854902, 0.619608, 1 )
 
-[sub_resource type="StyleBoxFlat" id=1]
+[sub_resource type="StyleBoxFlat" id=3]
 bg_color = Color( 1, 0.792157, 0.458824, 1 )
 border_width_left = 10
 border_width_top = 10
@@ -31,7 +31,7 @@ border_width_right = 10
 border_width_bottom = 10
 border_color = Color( 1, 0.854902, 0.619608, 1 )
 
-[sub_resource type="StyleBoxFlat" id=2]
+[sub_resource type="StyleBoxFlat" id=4]
 bg_color = Color( 1, 0.682353, 0.168627, 1 )
 border_width_left = 3
 border_width_top = 3
@@ -62,10 +62,10 @@ margin_left = -166.721
 margin_top = -94.8454
 margin_right = 203.279
 margin_bottom = 141.155
-custom_styles/selected_focus = SubResource( 3 )
-custom_styles/bg_focus = SubResource( 4 )
-custom_styles/selected = SubResource( 3 )
-custom_styles/bg = SubResource( 4 )
+custom_styles/selected_focus = SubResource( 1 )
+custom_styles/bg_focus = SubResource( 2 )
+custom_styles/selected = SubResource( 1 )
+custom_styles/bg = SubResource( 2 )
 custom_fonts/font = ExtResource( 5 )
 script = ExtResource( 1 )
 __meta__ = {
@@ -80,7 +80,7 @@ margin_left = 210.0
 margin_top = -93.539
 margin_right = 372.0
 margin_bottom = 139.461
-custom_styles/panel = SubResource( 1 )
+custom_styles/panel = SubResource( 3 )
 script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -95,7 +95,7 @@ margin_left = 34.781
 margin_top = 26.0567
 margin_right = 98.781
 margin_bottom = 90.0567
-custom_styles/panel = SubResource( 2 )
+custom_styles/panel = SubResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

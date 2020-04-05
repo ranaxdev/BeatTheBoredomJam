@@ -10,7 +10,7 @@
 [ext_resource path="res://Assets/healthbar/progress.png" type="Texture" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 22.7542, 9.77386 )
+extents = Vector2( 22.7542, 18.3605 )
 
 [sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 7 )
@@ -133,11 +133,11 @@ collision_mask = 7
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 23 )
+position = Vector2( 0.498245, 7.80338 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
-position = Vector2( 1.90735e-06, 1.90735e-06 )
+position = Vector2( 1.90735e-06, 0.249132 )
 scale = Vector2( 4, 4 )
 frames = SubResource( 20 )
 animation = "damage"

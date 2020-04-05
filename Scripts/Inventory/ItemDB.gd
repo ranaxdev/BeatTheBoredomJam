@@ -8,15 +8,26 @@ Structure of item database:
 	}
 """
 # Item textures (make class for this later)
+# Seeds
 var wheat_texture:Texture = preload("res://Assets/inv_icons/wheat_seed.png")
 var melon_texture:Texture = preload("res://Assets/inv_icons/melon_seed.png")
 var cyanide_texture:Texture = preload("res://Assets/inv_icons/cyanide.png")
 var cock_texture:Texture = preload("res://Assets/inv_icons/cock_seed.png")
+# Crops
+var wheatcrop_texture:Texture = preload("res://Assets/inv_icons/wheat_crop.png")
+var meloncrop_texture:Texture = preload("res://Assets/inv_icons/melon_crop.png")
+var cockcrop_texture:Texture = preload("res://Assets/inv_icons/cock_crop.png")
 
 var equipped = null
 
+"""
+Search categories:
+	SEEDS
+	CROPS
+"""
 # Inventory/World item list
 var ITEMS = {
+		# *** SEEDS ****
 	# Wheat seeds
 	"WHEAT_SEED" : {
 		"amount" : 3,
@@ -39,6 +50,32 @@ var ITEMS = {
 		"formal" : "COCK SEEDS",
 		"texture" : cock_texture,
 		"usage" : "WITH RAKE EQUIPPED PRESS SPACE ON DIRT"
+	}
+	,
+	
+	# *** CROPS ****
+	# Wheat crop
+	"WHEAT_CROP" : {
+		"amount" : 0,
+		"formal" : "WHEAT",
+		"texture" : wheatcrop_texture,
+		"usage" : "NONE"
+	}
+	,
+	# Melon crop
+	"MELON_CROP" : {
+		"amount" : 0,
+		"formal" : "MELON",
+		"texture" : meloncrop_texture,
+		"usage" : "NONE"
+	}
+	,
+	# Cock crop
+	"COCK_CROP" : {
+		"amount" : 0,
+		"formal" : "COCK",
+		"texture" : cockcrop_texture,
+		"usage" : "NONE"
 	}
 	,
 	# Cyanide pills (temp)

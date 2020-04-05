@@ -20,5 +20,7 @@ func harvest():
 			seeds.remove_child(crop) # Remove from memory
 			ploughed.dirtTileEmpty[player_pos]=true # Indicate that the tile is empty now
 			tilemap.set_cellv(player_pos,TileType.DIRT) # Change texture to regular dirt
-			# TEMP - add to crops stat
-			toolbar.addCropAmount()
+			
+			# Add crop to inventory
+			toolbar.addCropAmount() # TEMP LINE TO TRACK TOTAL HARVESTED
+			inventory.add_to_inv(1,crop.getCropName())

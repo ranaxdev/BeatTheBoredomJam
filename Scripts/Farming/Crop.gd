@@ -11,32 +11,35 @@ var CROPS = {
 	0 : {
 		"seed" : "WHEAT_SEED",
 		"texture" : wheatTexture,
-		"growtime" : 5
+		"growtime" : 5.0,
+		"name" : "WHEAT_CROP"
 	}
 	,
 	# MELON
 	1 : {
 		"seed" : "MELON_SEED",
 		"texture" : melonTexture,
-		"growtime" : 10
+		"growtime" : 10.0,
+		"name" : "MELON_CROP"
 	}
 	,
 	# COCK
 	2 : {
 		"seed" : "COCK_SEED",
 		"texture" : cockTexture,
-		"growtime" : 50
+		"growtime" : 20.0,
+		"name" : "COCK_CROP"
 	}
 }
 
-var cropType:int;
+var cropType:int
 
-var currentStage:int=0; # current stage of growth
-var growTimer:Timer=null;
-var growthDelay:float = 3.0
+var currentStage:int=0 # current stage of growth
+var growTimer:Timer=null
+var growthDelay:float
 var pos:Vector2; # Position vector in world units
 var watered:bool = false
-var cropTexture;
+var cropTexture
 var xregion=0 # Start of sprite sheet (advance as grow stage increases)
 
 # Constructor
@@ -47,6 +50,8 @@ func _init(seed_name:String, mappos:Vector2=Vector2()):
 
 #***CREATE EVENT***
 func _ready():
+	# Set grow delay depending on crop
+	growthDelay = CROPS.get(cropType).get("growtime")
 	# Timer to get to next stage (growing)
 	growTimer = Timer.new()
 	growTimer.set_one_shot(true)
@@ -60,6 +65,7 @@ func _draw():
 	draw_texture_rect_region(cropTexture,Rect2(tilemap.map_to_world(pos),Vector2(64,64)),Rect2(xregion,0,64,64))
 #***UPDATE***
 func _process(delta):
+	print(currentStage)
 	pass
 
 
@@ -86,7 +92,7 @@ func getPos() -> Vector2:
 
 # Return if it's ready to harvest
 func readyToHarvest() -> bool:
-	if(currentStage==3):
+	if(currentStage>=2):
 		return true
 	return false
 
@@ -96,3 +102,7 @@ func getCropTypeBySeed(seed_name:String) -> int:
 		if(CROPS.get(i).get("seed")==seed_name):
 			return i
 	return 0
+
+# Get crop name by crop type
+func getCropName() -> String:
+	return CROPS.get(cropType).get("name")
