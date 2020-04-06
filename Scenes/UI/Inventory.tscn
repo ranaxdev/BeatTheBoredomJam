@@ -1,9 +1,51 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scripts/Inventory/ItemList.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/Inventory/ItemDB.gd" type="Script" id=2]
 [ext_resource path="res://Scripts/Inventory/Inventory.gd" type="Script" id=3]
 [ext_resource path="res://Scripts/Inventory/Equip.gd" type="Script" id=4]
+[ext_resource path="res://Stylistic/font.tres" type="DynamicFont" id=5]
+[ext_resource path="res://Stylistic/invbutton.stylebox" type="StyleBox" id=6]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 1, 0.682353, 0.168627, 1 )
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color( 1, 0.792157, 0.458824, 1 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 1, 0.792157, 0.458824, 1 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 1, 0.854902, 0.619608, 1 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 1, 0.792157, 0.458824, 1 )
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color( 1, 0.854902, 0.619608, 1 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 1, 0.682353, 0.168627, 1 )
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color( 1, 0.854902, 0.619608, 1 )
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 1, 0.792157, 0.458824, 1 )
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color( 1, 0.854902, 0.619608, 1 )
 
 [node name="Inventory" type="Control"]
 margin_left = -18.6076
@@ -20,6 +62,11 @@ margin_left = -166.721
 margin_top = -94.8454
 margin_right = 203.279
 margin_bottom = 141.155
+custom_styles/selected_focus = SubResource( 1 )
+custom_styles/bg_focus = SubResource( 2 )
+custom_styles/selected = SubResource( 1 )
+custom_styles/bg = SubResource( 2 )
+custom_fonts/font = ExtResource( 5 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -30,30 +77,65 @@ script = ExtResource( 2 )
 
 [node name="Equip" type="Panel" parent="."]
 margin_left = 210.0
-margin_top = -94.0
+margin_top = -93.539
 margin_right = 372.0
-margin_bottom = 139.0
+margin_bottom = 139.461
+custom_styles/panel = SubResource( 3 )
 script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Selected" type="TextureRect" parent="Equip"]
-margin_left = 46.4869
-margin_top = 49.5519
-margin_right = 110.487
-margin_bottom = 113.552
+[node name="SelectionPanel" type="Panel" parent="Equip"]
+anchor_left = 0.076
+anchor_top = 0.068
+anchor_right = 0.076
+anchor_bottom = 0.068
+margin_left = 34.781
+margin_top = 26.0567
+margin_right = 98.781
+margin_bottom = 90.0567
+custom_styles/panel = SubResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Selected" type="TextureRect" parent="Equip/SelectionPanel"]
+margin_right = 64.0001
+margin_bottom = 64.0001
 stretch_mode = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Button" type="Button" parent="Equip"]
-margin_left = 31.0867
-margin_top = 191.347
-margin_right = 132.087
-margin_bottom = 217.347
+margin_left = 48.0659
+margin_top = 181.504
+margin_right = 116.066
+margin_bottom = 215.504
+custom_styles/hover = ExtResource( 6 )
+custom_styles/pressed = ExtResource( 6 )
+custom_styles/focus = ExtResource( 6 )
+custom_styles/disabled = ExtResource( 6 )
+custom_styles/normal = ExtResource( 6 )
+custom_fonts/font = ExtResource( 5 )
 text = "EQUIP"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UnequipButton" type="Button" parent="Equip"]
+margin_left = -90.3489
+margin_top = 199.577
+margin_right = -8.34894
+margin_bottom = 233.577
+custom_styles/hover = ExtResource( 6 )
+custom_styles/pressed = ExtResource( 6 )
+custom_styles/focus = ExtResource( 6 )
+custom_styles/disabled = ExtResource( 6 )
+custom_styles/normal = ExtResource( 6 )
+custom_fonts/font = ExtResource( 5 )
+text = "UNEQUIP"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -63,7 +145,29 @@ margin_left = 13.5325
 margin_top = 135.0
 margin_right = 145.533
 margin_bottom = 164.0
+custom_fonts/font = ExtResource( 5 )
 align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tooltip" type="Panel" parent="."]
+margin_left = -165.0
+margin_top = 147.0
+margin_right = 202.0
+margin_bottom = 184.0
+custom_styles/panel = SubResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Tooltip"]
+margin_left = 10.0
+margin_top = 4.0
+margin_right = 360.0
+margin_bottom = 32.0
+custom_fonts/font = ExtResource( 5 )
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": false

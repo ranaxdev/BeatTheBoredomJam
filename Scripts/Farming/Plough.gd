@@ -1,5 +1,6 @@
 extends Plant
 
+
 # Dirt tiles empty or not (dont have crops on them)
 var dirtTileEmpty= {}
 
@@ -58,7 +59,7 @@ func plough() -> void:
 
 # Water dirt tile (and start growth if crop planted)
 func water() -> void:
-	if(Input.is_action_just_pressed("ui_accept") and tilemap.get_cellv(player_pos) in [TileType.DIRT,TileType.WETDIRT]):
+	if(get_parent().use_water()):
 		# Start growing crops if watered
 		for i in get_node("../Seed/").getPlantedCrops():
 			if(i.getPos()==player_pos):
