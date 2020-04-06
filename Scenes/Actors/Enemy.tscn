@@ -33,43 +33,43 @@ region = Rect2( 80, 0, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=7]
 atlas = ExtResource( 1 )
-region = Rect2( 0, 16, 16, 16 )
+region = Rect2( 0, 0, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=8]
 atlas = ExtResource( 1 )
-region = Rect2( 16, 16, 16, 16 )
+region = Rect2( 32, 0, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=9]
 atlas = ExtResource( 1 )
-region = Rect2( 32, 16, 16, 16 )
+region = Rect2( 64, 0, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=10]
 atlas = ExtResource( 1 )
-region = Rect2( 48, 16, 16, 16 )
+region = Rect2( 80, 0, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=11]
 atlas = ExtResource( 1 )
-region = Rect2( 64, 16, 16, 16 )
+region = Rect2( 0, 16, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=12]
 atlas = ExtResource( 1 )
-region = Rect2( 80, 16, 16, 16 )
+region = Rect2( 16, 16, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=13]
 atlas = ExtResource( 1 )
-region = Rect2( 0, 0, 16, 16 )
+region = Rect2( 32, 16, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=14]
 atlas = ExtResource( 1 )
-region = Rect2( 32, 0, 16, 16 )
+region = Rect2( 48, 16, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=15]
 atlas = ExtResource( 1 )
-region = Rect2( 64, 0, 16, 16 )
+region = Rect2( 64, 16, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=16]
 atlas = ExtResource( 1 )
-region = Rect2( 80, 0, 16, 16 )
+region = Rect2( 80, 16, 16, 16 )
 
 [sub_resource type="SpriteFrames" id=17]
 animations = [ {
@@ -78,24 +78,24 @@ animations = [ {
 "name": "idle",
 "speed": 8.0
 }, {
-"frames": [ SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ) ],
-"loop": true,
-"name": "walk",
-"speed": 8.0
-}, {
-"frames": [ SubResource( 13 ), null, SubResource( 14 ), null, SubResource( 15 ), null, SubResource( 16 ), null ],
+"frames": [ SubResource( 7 ), null, SubResource( 8 ), null, SubResource( 9 ), null, SubResource( 10 ), null ],
 "loop": true,
 "name": "knockback",
+"speed": 8.0
+}, {
+"frames": [ SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ) ],
+"loop": true,
+"name": "walk",
 "speed": 8.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=18]
 extents = Vector2( 15.7572, 7.60492 )
 
-[sub_resource type="CircleShape2D" id=22]
+[sub_resource type="CircleShape2D" id=19]
 radius = 36.3984
 
-[sub_resource type="RectangleShape2D" id=23]
+[sub_resource type="RectangleShape2D" id=20]
 extents = Vector2( 16, 8 )
 
 [node name="Enemy" type="KinematicBody2D"]
@@ -124,14 +124,14 @@ collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 position = Vector2( 2.39233, -3.31246 )
-shape = SubResource( 22 )
+shape = SubResource( 19 )
 
 [node name="Weapon" type="Area2D" parent="."]
 collision_layer = 2
 
 [node name="Collision" type="CollisionShape2D" parent="Weapon"]
 position = Vector2( 20, 0 )
-shape = SubResource( 23 )
+shape = SubResource( 20 )
 disabled = true
 
 [node name="KnockbackTimer" type="Timer" parent="."]
@@ -169,6 +169,11 @@ __meta__ = {
 }
 
 [node name="KnockTween" type="Tween" parent="."]
+
+[node name="LineOfSight" type="RayCast2D" parent="."]
+enabled = true
+cast_to = Vector2( 0, 200 )
+collision_mask = 17
 [connection signal="area_entered" from="HurtBox" to="." method="_on_HurtBox_area_entered"]
 [connection signal="area_entered" from="Weapon" to="." method="_on_Weapon_area_entered"]
 [connection signal="timeout" from="KnockbackTimer" to="." method="_on_knockbackTimer_timeout"]

@@ -5,8 +5,11 @@ onready var weapon := $Weapon
 onready var weaponTimer := $WeaponTimer
 onready var knockbackTimer := $KnockbackTimer
 onready var knockbackTween := $KnockTween
+onready var lineOfSight := $LineOfSight
 onready var player : KinematicBody2D = $"/root/World/Player"
 onready var nav2d : Navigation2D = $"/root/World/NavMap"
+const sightDistance = 500
+var knockbackTestPosition
 var isKnockbacked = false;
 var shouldFollow = false
 var canAttack = true
@@ -22,26 +25,33 @@ func stateLogic(delta):
 	for key in states:
 		if states[key] == state:
 			$Label.set_text(key)
+
 	if canAttack && state != states.knockback:
 		weapon.get_node("Collision").disabled = false
 		attack()
 	else:
 		weapon.get_node("Collision").disabled = true
+		
 	if state == states.following:
 		follow(delta)
+		
+	if state == states.knockback:
+		if test_move(transform, knockbackTestPosition - global_position):
+			knockbackTween.stop(self)
+		position = knockbackTestPosition
 		
 func getTransition(delta):
 	match state:
 		states.idle:
 			if isKnockbacked:
 				return states.knockback
+			elif shouldFollow():
+				return states.following
 			elif shouldFollow:
 				return states.following
 		states.following:
 			if isKnockbacked:
 				return states.knockback
-			elif !shouldFollow:
-				return states.idle
 		states.knockback:
 			if !isKnockbacked:
 				return states.idle
@@ -86,13 +96,22 @@ func knockback():
 	var knockbackPoint = global_position - player.global_position
 	knockbackTween.interpolate_property(
 			self, #object
-			"position", #property
+			"knockbackTestPosition", #property
 			global_position, #start
 			knockbackPoint + global_position, #end
 			knockbackTimer.wait_time, #duration
 			Tween.TRANS_BOUNCE, #type
 			Tween.EASE_OUT) #type
 	knockbackTween.start()
+
+func shouldFollow():
+	var toPlayer = player.global_position - global_position
+	if toPlayer.length() < sightDistance:
+		lineOfSight.cast_to = toPlayer * 1.1
+		if lineOfSight.is_colliding():
+			if lineOfSight.get_collider() == player:
+				return true
+	return false
 
 func kill():
 	self.queue_free()
