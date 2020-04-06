@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/cyanide.png-76c0b142ef9f8770d1314383d1ff98c8.stex"
+path="res://.import/tempwater.png-6f8a3c4e577e2274581a4b71c32c8f76.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/inv_icons/cyanide.png"
-dest_files=[ "res://.import/cyanide.png-76c0b142ef9f8770d1314383d1ff98c8.stex" ]
+source_file="res://Assets/tempwater.png"
+dest_files=[ "res://.import/tempwater.png-6f8a3c4e577e2274581a4b71c32c8f76.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

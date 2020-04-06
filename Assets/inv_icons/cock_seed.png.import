@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/cyanide.png-76c0b142ef9f8770d1314383d1ff98c8.stex"
+path="res://.import/cock_seed.png-27412ad1883a1573e5ce6a2f9092b607.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/inv_icons/cyanide.png"
-dest_files=[ "res://.import/cyanide.png-76c0b142ef9f8770d1314383d1ff98c8.stex" ]
+source_file="res://Assets/inv_icons/cock_seed.png"
+dest_files=[ "res://.import/cock_seed.png-27412ad1883a1573e5ce6a2f9092b607.stex" ]
 
 [params]
 
