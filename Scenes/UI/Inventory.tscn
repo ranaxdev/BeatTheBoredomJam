@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Scripts/Inventory/ItemList.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/Inventory/ItemDB.gd" type="Script" id=2]
@@ -6,6 +6,9 @@
 [ext_resource path="res://Scripts/Inventory/Equip.gd" type="Script" id=4]
 [ext_resource path="res://Stylistic/font.tres" type="DynamicFont" id=5]
 [ext_resource path="res://Stylistic/invbutton.stylebox" type="StyleBox" id=6]
+[ext_resource path="res://Assets/tools/bucket.png" type="Texture" id=7]
+[ext_resource path="res://Assets/tools/rake.png" type="Texture" id=8]
+[ext_resource path="res://Assets/tools/pickaxe.png" type="Texture" id=9]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 1, 0.682353, 0.168627, 1 )
@@ -17,10 +20,10 @@ border_color = Color( 1, 0.792157, 0.458824, 1 )
 
 [sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 1, 0.792157, 0.458824, 1 )
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
 border_color = Color( 1, 0.854902, 0.619608, 1 )
 
 [sub_resource type="StyleBoxFlat" id=3]
@@ -172,3 +175,64 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="ToolSelection" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Pickaxe" type="Panel" parent="ToolSelection"]
+margin_left = -166.597
+margin_top = -141.625
+margin_right = -126.597
+margin_bottom = -101.625
+custom_styles/panel = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PickaxeTex" type="TextureRect" parent="ToolSelection/Pickaxe"]
+margin_left = 3.73531
+margin_top = 4.38635
+margin_right = 43.7353
+margin_bottom = 44.3864
+texture = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Rake" type="Panel" parent="ToolSelection"]
+margin_left = -118.597
+margin_top = -141.625
+margin_right = -78.597
+margin_bottom = -101.625
+custom_styles/panel = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RakeTex" type="TextureRect" parent="ToolSelection/Rake"]
+margin_left = 3.82739
+margin_top = 4.23232
+margin_right = 43.8274
+margin_bottom = 44.2323
+texture = ExtResource( 8 )
+
+[node name="Bucket" type="Panel" parent="ToolSelection"]
+margin_left = -70.597
+margin_top = -141.625
+margin_right = -30.597
+margin_bottom = -101.625
+custom_styles/panel = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BucketTex" type="TextureRect" parent="ToolSelection/Bucket"]
+margin_left = 4.30772
+margin_top = 3.63464
+margin_right = 44.3077
+margin_bottom = 43.6346
+texture = ExtResource( 7 )

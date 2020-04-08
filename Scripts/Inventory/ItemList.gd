@@ -15,8 +15,6 @@ func _ready():
 	add_to_inv(1,"COCK_SEED")
 	add_to_inv(1,"COCK_SEED")
 	add_to_inv(1,"COCK_SEED")
-	
-	
 
 	add_to_inv(1, "WHEAT_SEED")
 	add_to_inv(1, "WHEAT_SEED")
