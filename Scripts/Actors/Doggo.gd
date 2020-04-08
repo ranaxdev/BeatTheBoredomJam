@@ -9,10 +9,13 @@ const stopFollowDist := 150
 const startMoveAwayDist := 100
 const stopMoveAwayDist := 150
 
+var shouldStay := false
+
 # ~~~ INIT STATES ~~~ #
 func _ready():
 	randomize()
 	addState("idle")
+	addState("sitting")
 	addState("following")
 	addState("movingAway")
 	call_deferred("setState", states.idle)
@@ -23,6 +26,9 @@ func stateLogic(delta):
 			$Label.set_text(key)
 	$Label2.set_text(str(global_position.distance_to(player.global_position)))
 	
+	if Input.is_action_just_pressed("doggo_stay"):
+		toggleStay()
+	
 	if [states.idle, states.following].has(state):
 		follow(delta)
 	if state == states.movingAway:
@@ -32,11 +38,18 @@ func stateLogic(delta):
 func getTransition(delta):
 	match state:
 		states.idle:
-			if shouldFollow():
+			if shouldStay:
+				return states.sitting
+			elif shouldFollow():
 				return states.following
 			elif shouldMoveAway():
 				return states.movingAway
+		states.sitting:
+			if !shouldStay:
+				return states.idle
 		states.following:
+			if shouldStay:
+				return states.sitting
 			if shouldStopFollowing():
 				return states.idle
 		states.movingAway:
@@ -77,6 +90,9 @@ func moveAway(delta):
 		motionAxis = path[1] - global_position
 		motionAxis = -motionAxis.normalized()
 	move(delta)
+
+func toggleStay():
+	shouldStay = !shouldStay
 
 func shouldFollow() -> bool:
 	return global_position.distance_to(player.global_position) > startFollowDist
