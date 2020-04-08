@@ -6,13 +6,14 @@ onready var itemdb = self.get_node("ItemDB")
 onready var player = self.get_parent().get_node("./Player")
 onready var tooltip = get_node("./Tooltip")
 onready var tooltip_text = get_node("./Tooltip/Label")
-
+onready var toolselection = get_node("./ToolSelection")
 # *** CREATE EVENT ***
 func _ready():
 	# Initially inventory is closed (not visible)
 	itemlist.visible = false
 	equip.visible = false
 	tooltip.visible=false
+	toolselection.visible=false
 	pause_mode = Node.PAUSE_MODE_PROCESS #Whitelist pause mode
 
 # *** UPDATE EVENT ***
@@ -27,6 +28,7 @@ func _process(delta):
 		itemlist.visible = !itemlist.visible
 		equip.visible = !equip.visible
 		tooltip.visible = !tooltip.visible
+		toolselection.visible = !toolselection.visible
 		
 		# Unselect all items when inv closed
 		if(!itemlist.visible):
