@@ -28,3 +28,9 @@ func refill_water() -> void:
 	if(tilemap.get_cellv(player_pos)==TileType.WATER):
 		if(Input.is_action_just_pressed("ui_accept") and toolbar.getcurrentTool()==toolbar.getTools().WATER):
 			water_amount = MAX_WATER
+
+# *** GETTERS ***
+
+# Get water amount 
+func get_water_amount() -> int:
+	return water_amount

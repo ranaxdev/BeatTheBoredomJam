@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scripts/Inventory/ItemList.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/Inventory/ItemDB.gd" type="Script" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Scripts/Inventory/Equip.gd" type="Script" id=4]
 [ext_resource path="res://Stylistic/font.tres" type="DynamicFont" id=5]
 [ext_resource path="res://Stylistic/invbutton.stylebox" type="StyleBox" id=6]
+[ext_resource path="res://Scripts/Inventory/ToolSelection.gd" type="Script" id=10]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 1, 0.682353, 0.168627, 1 )
@@ -17,10 +18,10 @@ border_color = Color( 1, 0.792157, 0.458824, 1 )
 
 [sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 1, 0.792157, 0.458824, 1 )
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
 border_color = Color( 1, 0.854902, 0.619608, 1 )
 
 [sub_resource type="StyleBoxFlat" id=3]
@@ -169,6 +170,28 @@ margin_right = 360.0
 margin_bottom = 32.0
 custom_fonts/font = ExtResource( 5 )
 valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ToolSelection" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ToolsButton" type="OptionButton" parent="ToolSelection"]
+margin_left = 211.416
+margin_top = 146.752
+margin_right = 373.416
+margin_bottom = 182.752
+custom_styles/hover = ExtResource( 6 )
+custom_styles/pressed = ExtResource( 6 )
+custom_styles/focus = ExtResource( 6 )
+custom_styles/normal = ExtResource( 6 )
+custom_fonts/font = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
