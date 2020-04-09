@@ -88,8 +88,9 @@ func _on_Sprite_animation_finished():
 	sword.get_node("Sprite").frame = 0
 
 func _on_HurtBox_area_entered(area):
-	$DmgTimer.start()
-	isDamaged = true
+	if area.is_in_group("enemyWeapon"):
+		$DmgTimer.start()
+		isDamaged = true
 
 func _on_DmgTimer_timeout():
 	isDamaged = false

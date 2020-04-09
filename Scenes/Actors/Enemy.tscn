@@ -113,7 +113,7 @@ scale = Vector2( 4, 4 )
 frames = SubResource( 17 )
 animation = "knockback"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Collision" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 17 )
 shape = SubResource( 18 )
 
@@ -126,7 +126,9 @@ collision_mask = 8
 position = Vector2( 2.39233, -3.31246 )
 shape = SubResource( 19 )
 
-[node name="Weapon" type="Area2D" parent="."]
+[node name="Weapon" type="Area2D" parent="." groups=[
+"enemyWeapon",
+]]
 collision_layer = 2
 
 [node name="Collision" type="CollisionShape2D" parent="Weapon"]
