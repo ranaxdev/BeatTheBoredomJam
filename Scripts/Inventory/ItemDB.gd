@@ -16,6 +16,8 @@ var cock_texture:Texture = preload("res://Assets/inv_icons/cock_seed.png")
 var turnip_texture:Texture = preload("res://Assets/inv_icons/turnip_seed.png")
 var radish_texture:Texture = preload("res://Assets/inv_icons/radish_seed.png")
 var tomato_texture:Texture = preload("res://Assets/inv_icons/tomato_seed.png")
+var strawberry_texture:Texture = preload("res://Assets/inv_icons/strawberry_seed.png")
+var blueberry_texture:Texture = preload("res://Assets/inv_icons/blueberry_seed.png")
 # Crops
 var wheatcrop_texture:Texture = preload("res://Assets/inv_icons/wheat_crop.png")
 var meloncrop_texture:Texture = preload("res://Assets/inv_icons/melon_crop.png")
@@ -23,6 +25,8 @@ var cockcrop_texture:Texture = preload("res://Assets/inv_icons/cock_crop.png")
 var turnipcrop_texture:Texture = preload("res://Assets/inv_icons/turnip_crop.png")
 var radishcrop_texture:Texture = preload("res://Assets/inv_icons/radish_crop.png")
 var tomatocrop_texture:Texture = preload("res://Assets/inv_icons/tomato_crop.png")
+var strawberrycrop_texture:Texture = preload("res://Assets/inv_icons/strawberry_crop.png")
+var blueberrycrop_texture:Texture = preload("res://Assets/inv_icons/blueberry_crop.png")
 
 var equipped = null
 
@@ -81,6 +85,22 @@ var ITEMS = {
 		"texture" : tomato_texture,
 		"usage" : "WITH RAKE EQUIPPED PRESS SPACE ON DIRT"
 	}
+	,
+	# Strawberry seeds
+	"STRAWBERRY_SEED" : {
+		"amount" : 0,
+		"formal" : "STRAWBERRY SEEDS",
+		"texture" : strawberry_texture,
+		"usage" : "WITH RAKE EQUIPPED PRESS SPACE ON DIRT"
+	}
+	,
+	# Blueberry seeds
+	"BLUEBERRY_SEED" : {
+		"amount" : 0,
+		"formal" : "BLUEBERRY SEEDS",
+		"texture" : blueberry_texture,
+		"usage" : "WITH RAKE EQUIPPED PRESS SPACE ON DIRT"
+	}
 	
 	,
 	# *** CROPS ****
@@ -129,6 +149,22 @@ var ITEMS = {
 		"amount" : 0,
 		"formal" : "TOMATO",
 		"texture" : tomatocrop_texture,
+		"usage" : "NONE"
+	}
+	,
+	# Strawberry crop
+	"STRAWBERRY_CROP" : {
+		"amount" : 0,
+		"formal" : "STRAWBERRY",
+		"texture" : strawberrycrop_texture,
+		"usage" : "NONE"
+	}
+	,
+	# Blueberry crop
+	"BLUEBERRY_CROP" : {
+		"amount" : 0,
+		"formal" : "BLUEBERRY",
+		"texture" : blueberrycrop_texture,
 		"usage" : "NONE"
 	}
 	,

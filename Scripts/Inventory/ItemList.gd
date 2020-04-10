@@ -5,13 +5,14 @@ onready var equipButton = get_node("../Equip/Button")
 onready var unequipButton = get_node("../Equip/UnequipButton")
 
 func _ready():
-	add_to_inv(4,"WHEAT_SEED")
-	add_to_inv(4,"TURNIP_SEED")
-	add_to_inv(4,"TOMATO_SEED")
-	add_to_inv(4,"COCK_SEED")
-	add_to_inv(4,"MELON_SEED")
-	add_to_inv(4,"RADISH_SEED")
-
+	add_to_inv(1,"WHEAT_SEED")
+	add_to_inv(1,"TURNIP_SEED")
+	add_to_inv(1,"TOMATO_SEED")
+	add_to_inv(1,"COCK_SEED")
+	add_to_inv(1,"MELON_SEED")
+	add_to_inv(1,"RADISH_SEED")
+	add_to_inv(1,"STRAWBERRY_SEED")
+	add_to_inv(1,"BLUEBERRY_SEED")
 
 # *** UPDATE EVENT ***
 func _process(delta):

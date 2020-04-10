@@ -8,6 +8,8 @@ var cockTexture:Texture = preload("res://Assets/crop/cock.png")
 var turnipTexture:Texture = preload("res://Assets/crop/turnip.png")
 var radishTexture:Texture = preload("res://Assets/crop/radish.png")
 var tomatoTexture:Texture = preload("res://Assets/crop/tomato.png")
+var strawberryTexture:Texture = preload("res://Assets/crop/strawberry.png")
+var blueberryTexture:Texture = preload("res://Assets/crop/blueberry.png")
 # Dictionary of crops
 var CROPS = {
 	# WHEAT
@@ -50,11 +52,28 @@ var CROPS = {
 		"name" : "RADISH_CROP"
 	}
 	,
+	# TOMATO
 	5 : {
 		"seed" : "TOMATO_SEED",
 		"texture" : tomatoTexture,
 		"growtime" : 3.0,
 		"name" : "TOMATO_CROP"
+	}
+	,
+	# STRAWBERRY
+	6 : {
+		"seed" : "STRAWBERRY_SEED",
+		"texture" : strawberryTexture,
+		"growtime" : 3.0,
+		"name" : "STRAWBERRY_CROP"
+	}
+	,
+	# BLUEWBERRY
+	7 : {
+		"seed" : "BLUEBERRY_SEED",
+		"texture" : blueberryTexture,
+		"growtime" : 3.0,
+		"name" : "BLUEBERRY_CROP"
 	}
 }
 
