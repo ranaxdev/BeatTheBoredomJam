@@ -13,11 +13,12 @@ var wheat_texture:Texture = preload("res://Assets/inv_icons/wheat_seed.png")
 var melon_texture:Texture = preload("res://Assets/inv_icons/melon_seed.png")
 var cyanide_texture:Texture = preload("res://Assets/inv_icons/cyanide.png")
 var cock_texture:Texture = preload("res://Assets/inv_icons/cock_seed.png")
+var turnip_texture:Texture = preload("res://Assets/inv_icons/turnip_seed.png")
 # Crops
 var wheatcrop_texture:Texture = preload("res://Assets/inv_icons/wheat_crop.png")
 var meloncrop_texture:Texture = preload("res://Assets/inv_icons/melon_crop.png")
 var cockcrop_texture:Texture = preload("res://Assets/inv_icons/cock_crop.png")
-
+var turnipcrop_texture:Texture = preload("res://Assets/inv_icons/turnip_crop.png")
 var equipped = null
 
 """
@@ -47,12 +48,19 @@ var ITEMS = {
 	# Cock seeds
 	"COCK_SEED" : {
 		"amount" : 0,
-		"formal" : "COCK SEEDS",
+		"formal" : "CARROT SEEDS",
 		"texture" : cock_texture,
 		"usage" : "WITH RAKE EQUIPPED PRESS SPACE ON DIRT"
 	}
 	,
-	
+	# Turnip seeds
+	"TURNIP_SEED" : {
+		"amount" : 0,
+		"formal" : "TURNIP SEEDS",
+		"texture" : turnip_texture,
+		"usage" : "WITH RAKE EQUIPPED PRESSED SPACE ON DIRT"
+	}
+	,
 	# *** CROPS ****
 	# Wheat crop
 	"WHEAT_CROP" : {
@@ -73,8 +81,16 @@ var ITEMS = {
 	# Cock crop
 	"COCK_CROP" : {
 		"amount" : 0,
-		"formal" : "COCK",
+		"formal" : "CARROT",
 		"texture" : cockcrop_texture,
+		"usage" : "NONE"
+	}
+	,
+	# Turnip crop
+	"TURNIP_CROP" : {
+		"amount" : 0,
+		"formal" : "TURNIP",
+		"texture" : turnipcrop_texture,
 		"usage" : "NONE"
 	}
 	,

@@ -8,17 +8,24 @@ var pickaxeTex = preload("res://Assets/tools/pickaxe.png")
 var rakeTex = preload("res://Assets/tools/rake.png")
 var bucketTex = preload("res://Assets/tools/bucket.png")
 
-
+# *** CREATE ****
 func _ready():
 	buttons.add_icon_item(pickaxeTex,"  PICKAXE",0)
 	buttons.add_icon_item(rakeTex,"  RAKE",1)
 	buttons.add_icon_item(bucketTex,"  BUCKET",2)
 	
 
+# *** UPDATE ****
 func _process(delta):
 	_update_tool_names()
+	_update_tool_selection()
 
 # Update tool names (incase some amounts need updating e.g.)
 func _update_tool_names():
 	# Water bucket - update water amount
 	buttons.set_item_text(2, "  BUCKET: "+str(water.get_water_amount()))
+
+# Update selected tool usability
+func _update_tool_selection():
+	toolbar.setcurrentTool(buttons.get_selected_id())
+	print(toolbar.getcurrentTool())

@@ -10,7 +10,7 @@
 [ext_resource path="res://Assets/healthbar/progress.png" type="Texture" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 22.7542, 18.3605 )
+extents = Vector2( 19.4955, 18.3605 )
 
 [sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 7 )
@@ -136,7 +136,7 @@ collision_mask = 7
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0.498245, 7.80338 )
+position = Vector2( -0.801079, 10.3148 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
@@ -144,7 +144,6 @@ position = Vector2( 1.90735e-06, 0.249132 )
 scale = Vector2( 4, 4 )
 frames = SubResource( 20 )
 animation = "damage"
-frame = 2
 playing = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -155,20 +154,6 @@ position = Vector2( 478.2, -291.429 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 80, 32 )
 script = ExtResource( 3 )
-
-[node name="toolLabel" type="Label" parent="Camera2D/Toolbar"]
-anchor_left = -478.682
-anchor_top = 278.533
-anchor_right = -478.682
-anchor_bottom = 278.533
-margin_left = -25.1668
-margin_top = -44.9633
-margin_right = 8.83316
-margin_bottom = -30.9633
-text = "TEST"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="cropLabel" type="Label" parent="Camera2D/Toolbar"]
 anchor_left = -782.75

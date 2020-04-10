@@ -47,6 +47,7 @@ func plough() -> void:
 	#TEMP (REFACTOR LATER)
 	#Plough the tile on click
 	if(Input.is_key_pressed(KEY_SPACE) and tilemap.get_cellv(player_pos)==TileType.GRASS):
+		
 		tilemap.set_cellv(player_pos,TileType.DIRT)
 		# Track dirt tile status
 		dirtTileEmpty[player_pos] = true

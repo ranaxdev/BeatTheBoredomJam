@@ -11,6 +11,8 @@ func _ready():
 	add_to_inv(1,"MELON_SEED")
 	add_to_inv(1,"MELON_SEED")
 	
+	add_to_inv(3,"TURNIP_SEED")
+	
 	add_to_inv(1,"COCK_SEED")
 	add_to_inv(1,"COCK_SEED")
 	add_to_inv(1,"COCK_SEED")

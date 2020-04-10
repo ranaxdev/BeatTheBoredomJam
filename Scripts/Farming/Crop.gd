@@ -5,6 +5,7 @@ class_name Crop
 var melonTexture:Texture = preload("res://Assets/crop/watermelon.png")
 var wheatTexture:Texture = preload("res://Assets/crop/wheat.png")
 var cockTexture:Texture = preload("res://Assets/crop/cock.png")
+var turnipTexture:Texture = preload("res://Assets/crop/turnip.png")
 # Dictionary of crops
 var CROPS = {
 	# WHEAT
@@ -29,6 +30,14 @@ var CROPS = {
 		"texture" : cockTexture,
 		"growtime" : 20.0,
 		"name" : "COCK_CROP"
+	}
+	,
+	# TURNIP
+	3 : {
+		"seed" : "TURNIP_SEED",
+		"texture" : turnipTexture,
+		"growtime" : 3.0,
+		"name" : "TURNIP_CROP"
 	}
 }
 
@@ -62,12 +71,8 @@ func _ready():
 
 #***RENDER***
 func _draw():
-	draw_texture_rect_region(cropTexture,Rect2(tilemap.map_to_world(pos),Vector2(64,64)),Rect2(xregion,0,64,64))
-#***UPDATE***
-func _process(delta):
-	print(currentStage)
-	pass
-
+	draw_texture_rect_region(cropTexture,Rect2(tilemap.map_to_world(pos).x*4,tilemap.map_to_world(pos).y*4,64,64),Rect2(xregion,0,64,64))
+	
 
 # Grow timer complete function
 func _onGrowTimerComplete()->void:
