@@ -11,7 +11,7 @@ also 0/null if none selected
 var seedType:int = 1;
 var seedSelected:bool = true;  # A seed is equipped, leave true for now
 var plantedCrops = Array() # List of unharvest, planted crops
-var seed_types = ["WHEAT_SEED","MELON_SEED","COCK_SEED", "TURNIP_SEED"]
+var seed_types = ["WHEAT_SEED","MELON_SEED","COCK_SEED", "TURNIP_SEED","RADISH_SEED","TOMATO_SEED"]
 
 #***CREATE EVENT***
 func _ready():

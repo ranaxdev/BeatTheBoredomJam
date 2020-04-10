@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/turnip.png-f66d6d2a67dfc04a4ff08e7ad78a25bc.stex"
+path="res://.import/tomato_seed.png-f2ea56b5847428fa957fc95e5677eab4.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/crop/turnip.png"
-dest_files=[ "res://.import/turnip.png-f66d6d2a67dfc04a4ff08e7ad78a25bc.stex" ]
+source_file="res://Assets/inv_icons/tomato_seed.png"
+dest_files=[ "res://.import/tomato_seed.png-f2ea56b5847428fa957fc95e5677eab4.stex" ]
 
 [params]
 

@@ -14,11 +14,16 @@ var melon_texture:Texture = preload("res://Assets/inv_icons/melon_seed.png")
 var cyanide_texture:Texture = preload("res://Assets/inv_icons/cyanide.png")
 var cock_texture:Texture = preload("res://Assets/inv_icons/cock_seed.png")
 var turnip_texture:Texture = preload("res://Assets/inv_icons/turnip_seed.png")
+var radish_texture:Texture = preload("res://Assets/inv_icons/radish_seed.png")
+var tomato_texture:Texture = preload("res://Assets/inv_icons/tomato_seed.png")
 # Crops
 var wheatcrop_texture:Texture = preload("res://Assets/inv_icons/wheat_crop.png")
 var meloncrop_texture:Texture = preload("res://Assets/inv_icons/melon_crop.png")
 var cockcrop_texture:Texture = preload("res://Assets/inv_icons/cock_crop.png")
 var turnipcrop_texture:Texture = preload("res://Assets/inv_icons/turnip_crop.png")
+var radishcrop_texture:Texture = preload("res://Assets/inv_icons/radish_crop.png")
+var tomatocrop_texture:Texture = preload("res://Assets/inv_icons/tomato_crop.png")
+
 var equipped = null
 
 """
@@ -58,8 +63,25 @@ var ITEMS = {
 		"amount" : 0,
 		"formal" : "TURNIP SEEDS",
 		"texture" : turnip_texture,
-		"usage" : "WITH RAKE EQUIPPED PRESSED SPACE ON DIRT"
+		"usage" : "WITH RAKE EQUIPPED PRESS SPACE ON DIRT"
 	}
+	,
+	# Radish seeds
+	"RADISH_SEED" : {
+		"amount" : 0,
+		"formal" : "RADISH SEEDS",
+		"texture" : radish_texture,
+		"usage" : "WITH RAKE EQUIPPED PRESS SPACE ON DIRT"
+	}
+	,
+	# Tomato seeds
+	"TOMATO_SEED" : {
+		"amount" : 0,
+		"formal" : "TOMATO SEEDS",
+		"texture" : tomato_texture,
+		"usage" : "WITH RAKE EQUIPPED PRESS SPACE ON DIRT"
+	}
+	
 	,
 	# *** CROPS ****
 	# Wheat crop
@@ -91,6 +113,22 @@ var ITEMS = {
 		"amount" : 0,
 		"formal" : "TURNIP",
 		"texture" : turnipcrop_texture,
+		"usage" : "NONE"
+	}
+	,
+	# Radish crop
+	"RADISH_CROP" : {
+		"amount" : 0,
+		"formal" : "RADISH",
+		"texture" : radishcrop_texture,
+		"usage" : "NONE"
+	}
+	,
+	# Tomato crop
+	"TOMATO_CROP" : {
+		"amount" : 0,
+		"formal" : "TOMATO",
+		"texture" : tomatocrop_texture,
 		"usage" : "NONE"
 	}
 	,
