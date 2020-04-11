@@ -67,12 +67,6 @@ script = ExtResource( 3 )
 [node name="Harvest" type="Node2D" parent="Farming"]
 script = ExtResource( 8 )
 
-[node name="Doggo" parent="." instance=ExtResource( 5 )]
-position = Vector2( 1852.04, 1970.18 )
-
-[node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 1719.23, 2131.16 )
-
 [node name="Inventory" parent="." instance=ExtResource( 10 )]
 anchor_left = 0.126
 anchor_top = 1.098
@@ -125,7 +119,10 @@ polygon = PoolVector2Array( 237.485, 129.342, 520.461, -38.8035, 642.886, -240.0
 [node name="Town" parent="." instance=ExtResource( 12 )]
 
 [node name="Doggo" parent="." instance=ExtResource( 5 )]
-position = Vector2( 1852.04, 1970.18 )
+position = Vector2( 1743.71, 1973.44 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1719.23, 2131.16 )
 
 [node name="Market" parent="." instance=ExtResource( 11 )]
 margin_left = -1058.28
