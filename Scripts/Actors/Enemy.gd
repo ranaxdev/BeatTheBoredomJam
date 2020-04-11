@@ -12,6 +12,7 @@ onready var player : KinematicBody2D = $"/root/World/Player"
 onready var nav2d : Navigation2D = $"/root/World/NavMap"
 onready var rootNode := get_node("/root/World")
 onready var coin_res := preload("res://Scenes/Items/Coin.tscn")
+onready var potion_res := preload("res://Scenes/Items/Potion.tscn")
 const sightDistance = 500
 var knockbackTestPosition
 var isKnockbacked = false;
@@ -19,6 +20,7 @@ var shouldFollow = false
 var canAttack = true
 
 func _ready():
+	randomize()
 	addState("idle")
 	addState("following")
 	addState("knockback")
@@ -119,9 +121,13 @@ func shouldFollow():
 
 func kill():
 	#drop stuff
-	var coin = coin_res.instance()
-	coin.global_position = global_position
-	rootNode.add_child(coin)
+	var item
+	if randi() % 2 == 0:
+		item = coin_res.instance()
+	else: 
+		item = potion_res.instance()
+	item.global_position = global_position
+	rootNode.add_child(item)
 	self.queue_free()
 
 func _on_HurtBox_area_entered(area):
