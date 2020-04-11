@@ -89,7 +89,7 @@ func _on_Sprite_animation_finished():
 
 func _on_HurtBox_area_entered(area):
 	$DmgTimer.start()
-	isDamaged = true
+	#isDamaged = true
 
 func _on_DmgTimer_timeout():
 	isDamaged = false

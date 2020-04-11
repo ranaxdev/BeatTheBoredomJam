@@ -14,8 +14,7 @@ func _ready():
 	equip.visible = false
 	tooltip.visible=false
 	toolselection.visible=false
-	pause_mode = Node.PAUSE_MODE_PROCESS #Whitelist pause mode
-
+	
 # *** UPDATE EVENT ***
 func _process(delta):
 	# On inventory toggle
@@ -49,7 +48,9 @@ func _process(delta):
 	
 	# Pause rest of the game
 	if(itemlist.visible):
+		pause_mode = Node.PAUSE_MODE_PROCESS #Whitelist pause mode
 		get_tree().paused=true
 	else:
+		pause_mode = Node.PAUSE_MODE_STOP
 		get_tree().paused=false
 
