@@ -10,6 +10,8 @@ onready var knockbackTween := $KnockTween
 onready var lineOfSight := $LineOfSight
 onready var player : KinematicBody2D = $"/root/World/Player"
 onready var nav2d : Navigation2D = $"/root/World/NavMap"
+onready var rootNode := get_node("/root/World")
+onready var coin_res := preload("res://Scenes/Items/Coin.tscn")
 const sightDistance = 500
 var knockbackTestPosition
 var isKnockbacked = false;
@@ -116,12 +118,16 @@ func shouldFollow():
 	return false
 
 func kill():
+	#drop stuff
+	var coin = coin_res.instance()
+	coin.global_position = global_position
+	rootNode.add_child(coin)
 	self.queue_free()
 
 func _on_HurtBox_area_entered(area):
 	knockbackTimer.start()
 	isKnockbacked = true
-	damage(30)
+	damage(50)
 
 func _on_knockbackTimer_timeout():
 	isKnockbacked = false
