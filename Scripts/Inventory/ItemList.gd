@@ -5,9 +5,12 @@ onready var equipButton = get_node("../Equip/Button")
 onready var unequipButton = get_node("../Equip/UnequipButton")
 
 func _ready():
-	add_to_inv(3,"WHEAT_SEED")
-	add_to_inv(3,"TOMATO_CROP")
-	add_to_inv(8, "BLUEBERRY_CROP")
+	add_to_inv(1,"TOMATO_SEED")
+	add_to_inv(1,"STRAWBERRY_SEED")
+	add_to_inv(1, "BLUEBERRY_SEED")
+	add_to_inv(1, "RADISH_SEED")
+	add_to_inv(1, "TURNIP_SEED")
+	add_to_inv(1, "CARROT_SEED")
 	
 	
 
