@@ -15,10 +15,10 @@ __meta__ = {
 }
 
 [node name="InventoryTitle" type="Panel" parent="."]
-margin_left = -194.0
-margin_top = -82.0
-margin_right = 172.0
-margin_bottom = -39.0
+margin_left = -214.0
+margin_top = -83.0
+margin_right = 153.0
+margin_bottom = -40.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -58,10 +58,10 @@ __meta__ = {
 }
 
 [node name="Sell" type="ItemList" parent="."]
-margin_left = -194.0
-margin_top = -40.0
-margin_right = 173.0
-margin_bottom = 428.0
+margin_left = -213.816
+margin_top = -40.8616
+margin_right = 153.184
+margin_bottom = 427.138
 custom_fonts/font = ExtResource( 3 )
 script = ExtResource( 1 )
 __meta__ = {
