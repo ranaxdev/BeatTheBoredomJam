@@ -146,6 +146,7 @@ position = Vector2( 1.90735e-06, 0.249132 )
 scale = Vector2( 4, 4 )
 frames = SubResource( 20 )
 animation = "damage"
+frame = 2
 playing = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -206,12 +207,13 @@ collision_mask = 2
 shape = SubResource( 26 )
 
 [node name="HealthNode" type="Node2D" parent="."]
+scale = Vector2( 1.562, 1 )
 
 [node name="Healthbar" type="TextureProgress" parent="HealthNode"]
-margin_left = -569.49
-margin_top = 305.393
-margin_right = -529.49
-margin_bottom = 345.393
+margin_left = -367.487
+margin_top = -384.978
+margin_right = -207.487
+margin_bottom = -320.978
 texture_under = ExtResource( 8 )
 texture_over = ExtResource( 1 )
 texture_progress = ExtResource( 9 )
