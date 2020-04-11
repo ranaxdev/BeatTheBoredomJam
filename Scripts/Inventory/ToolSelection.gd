@@ -28,4 +28,4 @@ func _update_tool_names():
 # Update selected tool usability
 func _update_tool_selection():
 	toolbar.setcurrentTool(buttons.get_selected_id())
-	print(toolbar.getcurrentTool())
+	

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/temptoolbar.png-368eacc6b0a7d7009fb1670b921b5ab3.stex"
+path="res://.import/coin.png-23e506fc535e1e81a67b247520f1351a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/temptoolbar.png"
-dest_files=[ "res://.import/temptoolbar.png-368eacc6b0a7d7009fb1670b921b5ab3.stex" ]
+source_file="res://Assets/coin.png"
+dest_files=[ "res://.import/coin.png-23e506fc535e1e81a67b247520f1351a.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

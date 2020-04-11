@@ -29,6 +29,7 @@ var strawberrycrop_texture:Texture = preload("res://Assets/inv_icons/strawberry_
 var blueberrycrop_texture:Texture = preload("res://Assets/inv_icons/blueberry_crop.png")
 
 var equipped = null
+var shekels:int =0
 
 """
 Search categories:
@@ -54,8 +55,8 @@ var ITEMS = {
 		"usage" : "WITH RAKE EQUIPPED PRESS SPACE ON DIRT"
 	}
 	,
-	# Cock seeds
-	"COCK_SEED" : {
+	# Carrot seeds
+	"CARROT_SEED" : {
 		"amount" : 0,
 		"formal" : "CARROT SEEDS",
 		"texture" : cock_texture,
@@ -109,7 +110,8 @@ var ITEMS = {
 		"amount" : 0,
 		"formal" : "WHEAT",
 		"texture" : wheatcrop_texture,
-		"usage" : "NONE"
+		"usage" : "NONE",
+		"price" : 3
 	}
 	,
 	# Melon crop
@@ -117,15 +119,17 @@ var ITEMS = {
 		"amount" : 0,
 		"formal" : "MELON",
 		"texture" : meloncrop_texture,
-		"usage" : "NONE"
+		"usage" : "NONE",
+		"price" : 100
 	}
 	,
-	# Cock crop
-	"COCK_CROP" : {
+	# Carrot crop
+	"CARROT_CROP" : {
 		"amount" : 0,
 		"formal" : "CARROT",
 		"texture" : cockcrop_texture,
-		"usage" : "NONE"
+		"usage" : "NONE",
+		"price" : 8
 	}
 	,
 	# Turnip crop
@@ -133,7 +137,8 @@ var ITEMS = {
 		"amount" : 0,
 		"formal" : "TURNIP",
 		"texture" : turnipcrop_texture,
-		"usage" : "NONE"
+		"usage" : "NONE",
+		"price" : 5
 	}
 	,
 	# Radish crop
@@ -141,7 +146,8 @@ var ITEMS = {
 		"amount" : 0,
 		"formal" : "RADISH",
 		"texture" : radishcrop_texture,
-		"usage" : "NONE"
+		"usage" : "NONE",
+		"price" : 6
 	}
 	,
 	# Tomato crop
@@ -149,7 +155,8 @@ var ITEMS = {
 		"amount" : 0,
 		"formal" : "TOMATO",
 		"texture" : tomatocrop_texture,
-		"usage" : "NONE"
+		"usage" : "NONE",
+		"price" : 9
 	}
 	,
 	# Strawberry crop
@@ -157,7 +164,8 @@ var ITEMS = {
 		"amount" : 0,
 		"formal" : "STRAWBERRY",
 		"texture" : strawberrycrop_texture,
-		"usage" : "NONE"
+		"usage" : "NONE",
+		"price" : 15
 	}
 	,
 	# Blueberry crop
@@ -165,7 +173,8 @@ var ITEMS = {
 		"amount" : 0,
 		"formal" : "BLUEBERRY",
 		"texture" : blueberrycrop_texture,
-		"usage" : "NONE"
+		"usage" : "NONE",
+		"price" : 12
 	}
 	,
 	# Cyanide pills (temp)
@@ -194,6 +203,14 @@ func increase_amount(item_name:String):
 # Decrease amount of item by 
 func decrease_amount(item_name:String):
 	set_amount(item_name, get_amount(item_name)-1)
+
+# Add to shekels
+func add_shekels(amount:int) -> void:
+	shekels+=amount
+
+# Remove from shekels
+func remove_shekels(amount:int) -> void:
+	shekels-=amount
 
 # *** GETTERS ***
 
@@ -242,6 +259,14 @@ func get_amount(item_name:String) -> int:
 func get_formal_name(item_name:String) -> String:
 	return ITEMS.get(item_name).get("formal")
 
-# Get usge
+# Get price
+func get_price(item_name:String) -> int:
+	return ITEMS.get(item_name).get("price")
+
+# Get usage
 func get_usage(item_name:String) -> String:
 	return ITEMS.get(item_name).get("usage")
+
+# Get shekels
+func get_shekels() -> int:
+	return shekels

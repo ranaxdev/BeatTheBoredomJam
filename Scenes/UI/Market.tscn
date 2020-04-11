@@ -1,0 +1,110 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scripts/Town/Sell.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Town/Market.gd" type="Script" id=2]
+[ext_resource path="res://Stylistic/font.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Assets/coin.png" type="Texture" id=4]
+
+[node name="Market" type="Control"]
+margin_top = 2.45547
+margin_right = 40.0
+margin_bottom = 42.4555
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="InventoryTitle" type="Panel" parent="."]
+margin_left = -194.0
+margin_top = -82.0
+margin_right = 172.0
+margin_bottom = -39.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="InventoryLabel" type="Label" parent="InventoryTitle"]
+margin_left = 16.0843
+margin_top = 0.137039
+margin_right = 121.084
+margin_bottom = 41.137
+custom_fonts/font = ExtResource( 3 )
+text = "INVENTORY"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GoldLabel" type="Label" parent="InventoryTitle"]
+margin_left = 196.0
+margin_top = 1.0
+margin_right = 322.0
+margin_bottom = 39.0
+custom_fonts/font = ExtResource( 3 )
+align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GoldIcon" type="TextureRect" parent="InventoryTitle"]
+margin_left = 331.0
+margin_top = 9.21791
+margin_right = 356.0
+margin_bottom = 36.2179
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sell" type="ItemList" parent="."]
+margin_left = -194.0
+margin_top = -40.0
+margin_right = 173.0
+margin_bottom = 428.0
+custom_fonts/font = ExtResource( 3 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MoneyDisplay" type="Panel" parent="Sell"]
+margin_left = 3.0
+margin_top = 424.0
+margin_right = 367.0
+margin_bottom = 468.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Amount" type="Label" parent="Sell/MoneyDisplay"]
+margin_left = 49.5627
+margin_top = 6.49005
+margin_right = 203.563
+margin_bottom = 38.4901
+custom_fonts/font = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Shekel" type="TextureRect" parent="Sell/MoneyDisplay"]
+margin_left = 12.6571
+margin_top = 9.71484
+margin_right = 36.6571
+margin_bottom = 33.7148
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SellButton" type="Button" parent="Sell/MoneyDisplay"]
+margin_left = 290.325
+margin_top = 3.93112
+margin_right = 353.325
+margin_bottom = 37.9311
+custom_fonts/font = ExtResource( 3 )
+text = "SELL"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="button_up" from="Sell/MoneyDisplay/SellButton" to="Sell" method="_on_SellButton_button_up"]

@@ -16,7 +16,7 @@ var CROPS = {
 	0 : {
 		"seed" : "WHEAT_SEED",
 		"texture" : wheatTexture,
-		"growtime" : 5.0,
+		"growtime" : 3.0,
 		"name" : "WHEAT_CROP"
 	}
 	,
@@ -24,16 +24,16 @@ var CROPS = {
 	1 : {
 		"seed" : "MELON_SEED",
 		"texture" : melonTexture,
-		"growtime" : 10.0,
+		"growtime" : 3.0,
 		"name" : "MELON_CROP"
 	}
 	,
 	# COCK
 	2 : {
-		"seed" : "COCK_SEED",
+		"seed" : "CARROT_SEED",
 		"texture" : cockTexture,
-		"growtime" : 20.0,
-		"name" : "COCK_CROP"
+		"growtime" : 3.0,
+		"name" : "CARROT_CROP"
 	}
 	,
 	# TURNIP

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/tempwetdirt.png-8f66753fa9f128374489b77c8a3295ef.stex"
+path="res://.import/merchant.png-5bb1d47985fa14231ac84f537baf559e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/tempwetdirt.png"
-dest_files=[ "res://.import/tempwetdirt.png-8f66753fa9f128374489b77c8a3295ef.stex" ]
+source_file="res://Assets/merchant.png"
+dest_files=[ "res://.import/merchant.png-5bb1d47985fa14231ac84f537baf559e.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
