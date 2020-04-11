@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scenes/Actors/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/World.gd" type="Script" id=2]
@@ -10,9 +10,6 @@
 [ext_resource path="res://Scripts/Farming/Harvest.gd" type="Script" id=8]
 [ext_resource path="res://Scenes/EnemySpawnPoint.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/UI/Inventory.tscn" type="PackedScene" id=10]
-
-[sub_resource type="CircleShape2D" id=1]
-radius = 110.849
 
 [node name="World" type="Node"]
 script = ExtResource( 2 )
@@ -87,17 +84,43 @@ margin_right = -842.115
 margin_bottom = 1675.49
 
 [node name="EnemySpawnPoint" parent="." instance=ExtResource( 9 )]
-position = Vector2( 312.976, 1220.5 )
+position = Vector2( 317.272, 1204.75 )
+
+[node name="Point" type="Node2D" parent="EnemySpawnPoint/SpawnPoints" index="0"]
+position = Vector2( 239.477, 1185.7 )
+
+[node name="Point2" type="Node2D" parent="EnemySpawnPoint/SpawnPoints" index="1"]
+position = Vector2( 518.478, 1001.7 )
+
+[node name="Point3" type="Node2D" parent="EnemySpawnPoint/SpawnPoints" index="2"]
+position = Vector2( 394.477, 971.701 )
+
+[node name="Point4" type="Node2D" parent="EnemySpawnPoint/SpawnPoints" index="3"]
+position = Vector2( 258.181, 1274.97 )
+
+[node name="Point5" type="Node2D" parent="EnemySpawnPoint/SpawnPoints" index="4"]
+position = Vector2( 383.477, 1052.7 )
+
+[node name="Point6" type="Node2D" parent="EnemySpawnPoint/SpawnPoints" index="5"]
+position = Vector2( 362.797, 1136.2 )
+
+[node name="Point7" type="Node2D" parent="EnemySpawnPoint/SpawnPoints" index="6"]
+position = Vector2( 284.477, 1069.7 )
+
+[node name="Point8" type="Node2D" parent="EnemySpawnPoint/SpawnPoints" index="7"]
+position = Vector2( 317.477, 1301.7 )
+
+[node name="Point9" type="Node2D" parent="EnemySpawnPoint/SpawnPoints" index="8"]
+position = Vector2( 169.477, 1292.7 )
+
+[node name="Point10" type="Node2D" parent="EnemySpawnPoint/SpawnPoints" index="9"]
+position = Vector2( 238.477, 1397.7 )
+
+[node name="TriggerArea" parent="EnemySpawnPoint" index="1"]
+visible = false
 
 [node name="CollisionPolygon2D" parent="EnemySpawnPoint/TriggerArea" index="0"]
 polygon = PoolVector2Array( 237.485, 129.342, 520.461, -38.8035, 642.886, -240.061, 199.101, -671.21, -164.823, -627.258, -593.797, -275.64, -590.281, 253.545, -143.726, 337.933 )
-
-[node name="SpawnArea" parent="EnemySpawnPoint" index="1"]
-collision_layer = 0
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemySpawnPoint/SpawnArea" index="0"]
-position = Vector2( -20.9944, -9.33081 )
-shape = SubResource( 1 )
+[connection signal="body_exited" from="EnemySpawnPoint/TriggerArea" to="EnemySpawnPoint" method="_on_TriggerArea_body_exited"]
 
 [editable path="EnemySpawnPoint"]
