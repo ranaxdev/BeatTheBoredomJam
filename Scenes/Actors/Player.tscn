@@ -146,7 +146,7 @@ position = Vector2( 1.90735e-06, 0.249132 )
 scale = Vector2( 4, 4 )
 frames = SubResource( 20 )
 animation = "damage"
-frame = 1
+frame = 4
 playing = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -174,11 +174,10 @@ __meta__ = {
 }
 
 [node name="MerchantTex" type="TextureRect" parent="Camera2D"]
-visible = false
-margin_left = -622.0
-margin_top = -350.0
-margin_right = 622.0
-margin_bottom = 350.0
+margin_left = -710.5
+margin_top = -400.0
+margin_right = 710.5
+margin_bottom = 400.0
 texture = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
