@@ -7,6 +7,8 @@ onready var player = self.get_parent().get_node("./Player")
 onready var tooltip = get_node("./Tooltip")
 onready var tooltip_text = get_node("./Tooltip/Label")
 onready var toolselection = get_node("./ToolSelection")
+onready var goldpanel = get_node("./GoldDisplay")
+onready var goldamount = get_node("./GoldDisplay/GoldAmount")
 # *** CREATE EVENT ***
 func _ready():
 	# Initially inventory is closed (not visible)
@@ -14,9 +16,12 @@ func _ready():
 	equip.visible = false
 	tooltip.visible=false
 	toolselection.visible=false
+	goldpanel.visible = false
 	
 # *** UPDATE EVENT ***
 func _process(delta):
+	# Update gold amount
+	goldamount.set_text(str(itemdb.get_shekels()))
 	# On inventory toggle
 	if(Input.is_action_just_pressed("toggle_inv")):
 		# Adjust position
@@ -28,6 +33,7 @@ func _process(delta):
 		equip.visible = !equip.visible
 		tooltip.visible = !tooltip.visible
 		toolselection.visible = !toolselection.visible
+		goldpanel.visible = !goldpanel.visible
 		
 		# Unselect all items when inv closed
 		if(!itemlist.visible):

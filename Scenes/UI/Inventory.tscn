@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Scripts/Inventory/ItemList.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/Inventory/ItemDB.gd" type="Script" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Scripts/Inventory/Equip.gd" type="Script" id=4]
 [ext_resource path="res://Stylistic/font.tres" type="DynamicFont" id=5]
 [ext_resource path="res://Stylistic/invbutton.stylebox" type="StyleBox" id=6]
+[ext_resource path="res://Assets/coin.png" type="Texture" id=7]
 [ext_resource path="res://Scripts/Inventory/ToolSelection.gd" type="Script" id=10]
 
 [sub_resource type="StyleBoxFlat" id=1]
@@ -41,11 +42,11 @@ border_width_bottom = 3
 border_color = Color( 1, 0.854902, 0.619608, 1 )
 
 [sub_resource type="StyleBoxFlat" id=5]
-bg_color = Color( 1, 0.792157, 0.458824, 1 )
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
+bg_color = Color( 1, 0.635294, 0.054902, 1 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
 border_color = Color( 1, 0.854902, 0.619608, 1 )
 
 [node name="Inventory" type="Control"]
@@ -192,6 +193,37 @@ custom_styles/pressed = ExtResource( 6 )
 custom_styles/focus = ExtResource( 6 )
 custom_styles/normal = ExtResource( 6 )
 custom_fonts/font = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GoldDisplay" type="Panel" parent="."]
+margin_left = 210.624
+margin_top = -146.0
+margin_right = 400.624
+margin_bottom = -103.0
+custom_styles/panel = SubResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GoldIcon" type="TextureRect" parent="GoldDisplay"]
+margin_left = 11.8734
+margin_top = 9.12242
+margin_right = 35.8734
+margin_bottom = 33.1224
+texture = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GoldAmount" type="Label" parent="GoldDisplay"]
+margin_left = 45.9221
+margin_top = 4.77275
+margin_right = 176.922
+margin_bottom = 32.7728
+custom_fonts/font = ExtResource( 5 )
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
