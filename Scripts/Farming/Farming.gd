@@ -6,6 +6,7 @@ var water_amount:int
 
 func _ready():
 	water_amount = MAX_WATER # Initially water bucket is full
+	
 
 # *** UPDATE EVENT ***
 func _process(delta):
@@ -25,7 +26,12 @@ func use_water() -> bool:
 
 # Refills water on water tile
 func refill_water() -> void:
-	if(tilemap.get_cellv(player_pos)==TileType.WATER):
+	# Store tile types adjacent to player
+	var adj = [tilemap.get_cell(player_pos.x+1,player_pos.y),tilemap.get_cell(player_pos.x-1,player_pos.y),
+	tilemap.get_cell(player_pos.x,player_pos.y+1),tilemap.get_cell(player_pos.x,player_pos.y-1)]
+	
+	# Check if adjacent tiles were water to refill
+	if(TileType.WATER in adj):
 		if(Input.is_action_just_pressed("ui_accept") and toolbar.getcurrentTool()==toolbar.getTools().WATER):
 			water_amount = MAX_WATER
 

@@ -5,13 +5,18 @@ class_name Crop
 var melonTexture:Texture = preload("res://Assets/crop/watermelon.png")
 var wheatTexture:Texture = preload("res://Assets/crop/wheat.png")
 var cockTexture:Texture = preload("res://Assets/crop/cock.png")
+var turnipTexture:Texture = preload("res://Assets/crop/turnip.png")
+var radishTexture:Texture = preload("res://Assets/crop/radish.png")
+var tomatoTexture:Texture = preload("res://Assets/crop/tomato.png")
+var strawberryTexture:Texture = preload("res://Assets/crop/strawberry.png")
+var blueberryTexture:Texture = preload("res://Assets/crop/blueberry.png")
 # Dictionary of crops
 var CROPS = {
 	# WHEAT
 	0 : {
 		"seed" : "WHEAT_SEED",
 		"texture" : wheatTexture,
-		"growtime" : 5.0,
+		"growtime" : 3.0,
 		"name" : "WHEAT_CROP"
 	}
 	,
@@ -19,16 +24,56 @@ var CROPS = {
 	1 : {
 		"seed" : "MELON_SEED",
 		"texture" : melonTexture,
-		"growtime" : 10.0,
+		"growtime" : 3.0,
 		"name" : "MELON_CROP"
 	}
 	,
 	# COCK
 	2 : {
-		"seed" : "COCK_SEED",
+		"seed" : "CARROT_SEED",
 		"texture" : cockTexture,
-		"growtime" : 20.0,
-		"name" : "COCK_CROP"
+		"growtime" : 3.0,
+		"name" : "CARROT_CROP"
+	}
+	,
+	# TURNIP
+	3 : {
+		"seed" : "TURNIP_SEED",
+		"texture" : turnipTexture,
+		"growtime" : 3.0,
+		"name" : "TURNIP_CROP"
+	}
+	,
+	# RADISH
+	4 : {
+		"seed" : "RADISH_SEED",
+		"texture" : radishTexture,
+		"growtime" : 3.0,
+		"name" : "RADISH_CROP"
+	}
+	,
+	# TOMATO
+	5 : {
+		"seed" : "TOMATO_SEED",
+		"texture" : tomatoTexture,
+		"growtime" : 3.0,
+		"name" : "TOMATO_CROP"
+	}
+	,
+	# STRAWBERRY
+	6 : {
+		"seed" : "STRAWBERRY_SEED",
+		"texture" : strawberryTexture,
+		"growtime" : 3.0,
+		"name" : "STRAWBERRY_CROP"
+	}
+	,
+	# BLUEWBERRY
+	7 : {
+		"seed" : "BLUEBERRY_SEED",
+		"texture" : blueberryTexture,
+		"growtime" : 3.0,
+		"name" : "BLUEBERRY_CROP"
 	}
 }
 
@@ -62,12 +107,8 @@ func _ready():
 
 #***RENDER***
 func _draw():
-	draw_texture_rect_region(cropTexture,Rect2(tilemap.map_to_world(pos),Vector2(64,64)),Rect2(xregion,0,64,64))
-#***UPDATE***
-func _process(delta):
-	print(currentStage)
-	pass
-
+	draw_texture_rect_region(cropTexture,Rect2(tilemap.map_to_world(pos).x*4,tilemap.map_to_world(pos).y*4,64,64),Rect2(xregion,0,64,64))
+	
 
 # Grow timer complete function
 func _onGrowTimerComplete()->void:

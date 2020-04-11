@@ -92,5 +92,6 @@ func _on_HurtBox_area_entered(area):
 		$DmgTimer.start()
 		isDamaged = true
 
+
 func _on_DmgTimer_timeout():
 	isDamaged = false

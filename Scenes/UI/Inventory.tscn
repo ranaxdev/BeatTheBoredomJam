@@ -33,7 +33,7 @@ border_width_bottom = 10
 border_color = Color( 1, 0.854902, 0.619608, 1 )
 
 [sub_resource type="StyleBoxFlat" id=4]
-bg_color = Color( 1, 0.682353, 0.168627, 1 )
+bg_color = Color( 0.85098, 0.529412, 0.0117647, 1 )
 border_width_left = 3
 border_width_top = 3
 border_width_right = 3
@@ -79,7 +79,7 @@ script = ExtResource( 2 )
 [node name="Equip" type="Panel" parent="."]
 margin_left = 210.0
 margin_top = -93.539
-margin_right = 372.0
+margin_right = 404.0
 margin_bottom = 139.461
 custom_styles/panel = SubResource( 3 )
 script = ExtResource( 4 )
@@ -92,10 +92,10 @@ anchor_left = 0.076
 anchor_top = 0.068
 anchor_right = 0.076
 anchor_bottom = 0.068
-margin_left = 34.781
-margin_top = 26.0567
-margin_right = 98.781
-margin_bottom = 90.0567
+margin_left = 50.256
+margin_top = 26.057
+margin_right = 114.256
+margin_bottom = 90.057
 custom_styles/panel = SubResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -110,10 +110,10 @@ __meta__ = {
 }
 
 [node name="Button" type="Button" parent="Equip"]
-margin_left = 48.0659
-margin_top = 181.504
-margin_right = 116.066
-margin_bottom = 215.504
+margin_left = 65.9406
+margin_top = 182.1
+margin_right = 133.941
+margin_bottom = 216.1
 custom_styles/hover = ExtResource( 6 )
 custom_styles/pressed = ExtResource( 6 )
 custom_styles/focus = ExtResource( 6 )
@@ -183,10 +183,10 @@ __meta__ = {
 }
 
 [node name="ToolsButton" type="OptionButton" parent="ToolSelection"]
-margin_left = 211.416
-margin_top = 146.752
-margin_right = 373.416
-margin_bottom = 182.752
+margin_left = 211.0
+margin_top = 147.0
+margin_right = 405.0
+margin_bottom = 183.0
 custom_styles/hover = ExtResource( 6 )
 custom_styles/pressed = ExtResource( 6 )
 custom_styles/focus = ExtResource( 6 )

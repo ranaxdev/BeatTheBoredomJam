@@ -6,15 +6,15 @@ onready var player:Actor = $"/root/World/Player"
 onready var toolbar:Sprite = $"/root/World/Player/Camera2D/Toolbar"
 onready var inventory = $"/root/World/Inventory/ItemList"
 var player_pos:Vector2 #Player position in world units
-enum TileType {WALL=0, GRASS=1, DIRT=2, LAVA=3, WETDIRT=5, WATER=6}
+enum TileType {GRASS=0, WETDIRT=10, DIRT=11, WATER=5}
 
 func _ready():
 	pass
-
-func _process(delta):
+	
+func _process(delta):	
 	updatePlayerPos()
-
+	
 # Player cartesian coords to world units
 func updatePlayerPos() -> void:
-	player_pos = tilemap.world_to_map(Vector2(player.position.x,player.position.y))
+	player_pos = tilemap.world_to_map(Vector2(player.position.x/4,player.position.y/4))
 

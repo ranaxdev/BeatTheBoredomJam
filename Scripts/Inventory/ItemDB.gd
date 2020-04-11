@@ -13,12 +13,23 @@ var wheat_texture:Texture = preload("res://Assets/inv_icons/wheat_seed.png")
 var melon_texture:Texture = preload("res://Assets/inv_icons/melon_seed.png")
 var cyanide_texture:Texture = preload("res://Assets/inv_icons/cyanide.png")
 var cock_texture:Texture = preload("res://Assets/inv_icons/cock_seed.png")
+var turnip_texture:Texture = preload("res://Assets/inv_icons/turnip_seed.png")
+var radish_texture:Texture = preload("res://Assets/inv_icons/radish_seed.png")
+var tomato_texture:Texture = preload("res://Assets/inv_icons/tomato_seed.png")
+var strawberry_texture:Texture = preload("res://Assets/inv_icons/strawberry_seed.png")
+var blueberry_texture:Texture = preload("res://Assets/inv_icons/blueberry_seed.png")
 # Crops
 var wheatcrop_texture:Texture = preload("res://Assets/inv_icons/wheat_crop.png")
 var meloncrop_texture:Texture = preload("res://Assets/inv_icons/melon_crop.png")
 var cockcrop_texture:Texture = preload("res://Assets/inv_icons/cock_crop.png")
+var turnipcrop_texture:Texture = preload("res://Assets/inv_icons/turnip_crop.png")
+var radishcrop_texture:Texture = preload("res://Assets/inv_icons/radish_crop.png")
+var tomatocrop_texture:Texture = preload("res://Assets/inv_icons/tomato_crop.png")
+var strawberrycrop_texture:Texture = preload("res://Assets/inv_icons/strawberry_crop.png")
+var blueberrycrop_texture:Texture = preload("res://Assets/inv_icons/blueberry_crop.png")
 
 var equipped = null
+var shekels:int =0
 
 """
 Search categories:
@@ -44,22 +55,63 @@ var ITEMS = {
 		"usage" : "WITH RAKE EQUIPPED PRESS SPACE ON DIRT"
 	}
 	,
-	# Cock seeds
-	"COCK_SEED" : {
+	# Carrot seeds
+	"CARROT_SEED" : {
 		"amount" : 0,
-		"formal" : "COCK SEEDS",
+		"formal" : "CARROT SEEDS",
 		"texture" : cock_texture,
 		"usage" : "WITH RAKE EQUIPPED PRESS SPACE ON DIRT"
 	}
 	,
+	# Turnip seeds
+	"TURNIP_SEED" : {
+		"amount" : 0,
+		"formal" : "TURNIP SEEDS",
+		"texture" : turnip_texture,
+		"usage" : "WITH RAKE EQUIPPED PRESS SPACE ON DIRT"
+	}
+	,
+	# Radish seeds
+	"RADISH_SEED" : {
+		"amount" : 0,
+		"formal" : "RADISH SEEDS",
+		"texture" : radish_texture,
+		"usage" : "WITH RAKE EQUIPPED PRESS SPACE ON DIRT"
+	}
+	,
+	# Tomato seeds
+	"TOMATO_SEED" : {
+		"amount" : 0,
+		"formal" : "TOMATO SEEDS",
+		"texture" : tomato_texture,
+		"usage" : "WITH RAKE EQUIPPED PRESS SPACE ON DIRT"
+	}
+	,
+	# Strawberry seeds
+	"STRAWBERRY_SEED" : {
+		"amount" : 0,
+		"formal" : "STRAWBERRY SEEDS",
+		"texture" : strawberry_texture,
+		"usage" : "WITH RAKE EQUIPPED PRESS SPACE ON DIRT"
+	}
+	,
+	# Blueberry seeds
+	"BLUEBERRY_SEED" : {
+		"amount" : 0,
+		"formal" : "BLUEBERRY SEEDS",
+		"texture" : blueberry_texture,
+		"usage" : "WITH RAKE EQUIPPED PRESS SPACE ON DIRT"
+	}
 	
+	,
 	# *** CROPS ****
 	# Wheat crop
 	"WHEAT_CROP" : {
 		"amount" : 0,
 		"formal" : "WHEAT",
 		"texture" : wheatcrop_texture,
-		"usage" : "NONE"
+		"usage" : "NONE",
+		"price" : 3
 	}
 	,
 	# Melon crop
@@ -67,15 +119,62 @@ var ITEMS = {
 		"amount" : 0,
 		"formal" : "MELON",
 		"texture" : meloncrop_texture,
-		"usage" : "NONE"
+		"usage" : "NONE",
+		"price" : 100
 	}
 	,
-	# Cock crop
-	"COCK_CROP" : {
+	# Carrot crop
+	"CARROT_CROP" : {
 		"amount" : 0,
-		"formal" : "COCK",
+		"formal" : "CARROT",
 		"texture" : cockcrop_texture,
-		"usage" : "NONE"
+		"usage" : "NONE",
+		"price" : 8
+	}
+	,
+	# Turnip crop
+	"TURNIP_CROP" : {
+		"amount" : 0,
+		"formal" : "TURNIP",
+		"texture" : turnipcrop_texture,
+		"usage" : "NONE",
+		"price" : 5
+	}
+	,
+	# Radish crop
+	"RADISH_CROP" : {
+		"amount" : 0,
+		"formal" : "RADISH",
+		"texture" : radishcrop_texture,
+		"usage" : "NONE",
+		"price" : 6
+	}
+	,
+	# Tomato crop
+	"TOMATO_CROP" : {
+		"amount" : 0,
+		"formal" : "TOMATO",
+		"texture" : tomatocrop_texture,
+		"usage" : "NONE",
+		"price" : 9
+	}
+	,
+	# Strawberry crop
+	"STRAWBERRY_CROP" : {
+		"amount" : 0,
+		"formal" : "STRAWBERRY",
+		"texture" : strawberrycrop_texture,
+		"usage" : "NONE",
+		"price" : 15
+	}
+	,
+	# Blueberry crop
+	"BLUEBERRY_CROP" : {
+		"amount" : 0,
+		"formal" : "BLUEBERRY",
+		"texture" : blueberrycrop_texture,
+		"usage" : "NONE",
+		"price" : 12
 	}
 	,
 	# Cyanide pills (temp)
@@ -104,6 +203,14 @@ func increase_amount(item_name:String):
 # Decrease amount of item by 
 func decrease_amount(item_name:String):
 	set_amount(item_name, get_amount(item_name)-1)
+
+# Add to shekels
+func add_shekels(amount:int) -> void:
+	shekels+=amount
+
+# Remove from shekels
+func remove_shekels(amount:int) -> void:
+	shekels-=amount
 
 # *** GETTERS ***
 
@@ -152,6 +259,14 @@ func get_amount(item_name:String) -> int:
 func get_formal_name(item_name:String) -> String:
 	return ITEMS.get(item_name).get("formal")
 
-# Get usge
+# Get price
+func get_price(item_name:String) -> int:
+	return ITEMS.get(item_name).get("price")
+
+# Get usage
 func get_usage(item_name:String) -> String:
 	return ITEMS.get(item_name).get("usage")
+
+# Get shekels
+func get_shekels() -> int:
+	return shekels
