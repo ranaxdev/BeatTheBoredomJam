@@ -1,5 +1,7 @@
 extends Actor
 
+class_name Enemy
+
 onready var charSprite := $Sprite
 onready var weapon := $Weapon
 onready var weaponTimer := $WeaponTimer
