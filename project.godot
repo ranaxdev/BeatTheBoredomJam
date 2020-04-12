@@ -52,6 +52,10 @@ boot_splash/bg_color=Color( 0.0862745, 0.0862745, 0.0862745, 1 )
 config/custom_image=""
 config/size/borderless=false
 
+[autoload]
+
+Singleton="*res://Scripts/Singleton.gd"
+
 [display]
 
 window/size/width=1200
