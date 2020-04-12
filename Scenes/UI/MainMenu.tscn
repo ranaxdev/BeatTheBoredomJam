@@ -51,14 +51,14 @@ __meta__ = {
 [node name="HBoxContainer" type="HBoxContainer" parent="MainMenu"]
 margin_top = 80.0
 margin_right = 1200.0
-margin_bottom = 774.0
+margin_bottom = 720.0
 custom_constants/separation = 30
 alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MainMenu/HBoxContainer"]
 margin_left = 38.0
 margin_right = 731.0
-margin_bottom = 694.0
+margin_bottom = 640.0
 custom_constants/separation = 20
 
 [node name="Title" type="TextureRect" parent="MainMenu/HBoxContainer/VBoxContainer"]
@@ -69,45 +69,49 @@ texture = ExtResource( 1 )
 [node name="MenuOptions" type="VBoxContainer" parent="MainMenu/HBoxContainer/VBoxContainer"]
 margin_top = 264.0
 margin_right = 693.0
-margin_bottom = 694.0
+margin_bottom = 612.0
 custom_constants/separation = 10
 
 [node name="Start" type="TextureButton" parent="MainMenu/HBoxContainer/VBoxContainer/MenuOptions"]
 margin_right = 693.0
-margin_bottom = 100.0
+margin_bottom = 83.0
 texture_normal = ExtResource( 3 )
 texture_hover = ExtResource( 7 )
 
 [node name="Controls" type="TextureButton" parent="MainMenu/HBoxContainer/VBoxContainer/MenuOptions"]
 margin_top = 110.0
+
 margin_right = 693.0
-margin_bottom = 210.0
+margin_bottom = 175.0
 texture_normal = ExtResource( 2 )
 texture_hover = ExtResource( 10 )
 
 [node name="Credits" type="TextureButton" parent="MainMenu/HBoxContainer/VBoxContainer/MenuOptions"]
 margin_top = 220.0
+
 margin_right = 693.0
-margin_bottom = 320.0
+margin_bottom = 264.0
 texture_normal = ExtResource( 4 )
 texture_hover = ExtResource( 9 )
 
 [node name="Quit" type="TextureButton" parent="MainMenu/HBoxContainer/VBoxContainer/MenuOptions"]
 margin_top = 330.0
+
 margin_right = 693.0
-margin_bottom = 430.0
+margin_bottom = 348.0
 texture_normal = ExtResource( 5 )
 texture_hover = ExtResource( 8 )
 
 [node name="CenterContainer" type="CenterContainer" parent="MainMenu/HBoxContainer"]
 margin_left = 761.0
 margin_right = 1161.0
-margin_bottom = 694.0
+margin_bottom = 640.0
 
 [node name="Art" type="TextureRect" parent="MainMenu/HBoxContainer/CenterContainer"]
 margin_top = 107.0
+
 margin_right = 400.0
-margin_bottom = 587.0
+margin_bottom = 560.0
 texture = ExtResource( 6 )
 
 [node name="Timer" type="Timer" parent="MainMenu"]

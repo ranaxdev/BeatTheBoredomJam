@@ -2,6 +2,7 @@ extends MarginContainer
 
 onready var transition = get_parent().get_node("ColorRect")
 
+
 func _ready():
 	transition.visible = false
 	transition.get_node("Label").visible = false
@@ -13,6 +14,7 @@ func _on_Start_button_down():
 	transition.visible = true
 	transition.get_node("AnimationPlayer").play("animation")
 	pass
+
 
 func _on_Controls_button_down():
 	get_tree().change_scene("res://Scenes/UI/Controls.tscn")

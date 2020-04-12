@@ -4,6 +4,8 @@ onready var inv = self.get_node("../../Inventory/ItemDB")
 onready var money = self.get_node("MoneyDisplay/Amount")
 onready var sell_button = self.get_node("MoneyDisplay/SellButton")
 onready var goldlabel = self.get_node("../InventoryTitle/GoldLabel")
+onready var coin_sound = $"/root/World/Audio/Coin"
+
 # Defining list of crops
 var croplist = ["WHEAT_CROP", "MELON_CROP", "CARROT_CROP", "TURNIP_CROP","RADISH_CROP","TOMATO_CROP","STRAWBERRY_CROP","BLUEBERRY_CROP",
 "WHEAT_SEED","MELON_SEED","CARROT_SEED","TURNIP_SEED","RADISH_SEED","TOMATO_SEED","STRAWBERRY_SEED","BLUEBERRY_SEED","HEALTH_POTION"]
@@ -35,7 +37,7 @@ func _sell_selected_item()->void:
 		# Increase shekels and update label
 		inv.add_shekels(inv.get_price(get_item_metadata(get_selected_items()[0])))
 		goldlabel.set_text(str(inv.get_shekels()))
-
+		coin_sound.play()
 	# Update stuff
 # Update price display of selected item
 func _update_price_display()-> void:

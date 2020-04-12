@@ -6,6 +6,8 @@ onready var money = get_node("MoneyDisplay/Amount")
 onready var buybutton = get_node("MoneyDisplay/BuyButton")
 onready var goldlabel = get_node("../InventoryTitle/GoldLabel")
 onready var sell = get_node("../Sell")
+onready var coin_sound = $"/root/World/Audio/Coin"
+
 # List of items available in the shop
 var shopitems = ["WHEAT_SEED","MELON_SEED","CARROT_SEED","TURNIP_SEED","RADISH_SEED","TOMATO_SEED",
 "STRAWBERRY_SEED","BLUEBERRY_SEED","HEALTH_POTION"]
@@ -36,7 +38,7 @@ func _buy_selected_item() -> void:
 			sell.clear()
 			sell._display_crops()
 			sell.update()
-
+			coin_sound.play()
 
 	# Update stuff
 # Update price display of selected item

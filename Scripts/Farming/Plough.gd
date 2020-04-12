@@ -1,6 +1,8 @@
 extends Plant
 
-
+# Audio
+onready var plough_sound = $"/root/World/Audio/Plough"
+onready var water_sound = $"/root/World/Audio/Splash"
 # Dirt tiles empty or not (dont have crops on them)
 var dirtTileEmpty= {}
 
@@ -47,7 +49,7 @@ func plough() -> void:
 	#TEMP (REFACTOR LATER)
 	#Plough the tile on click
 	if(Input.is_key_pressed(KEY_SPACE) and tilemap.get_cellv(player_pos)==TileType.GRASS):
-		
+		plough_sound.play()
 		tilemap.set_cellv(player_pos,TileType.DIRT)
 		# Track dirt tile status
 		dirtTileEmpty[player_pos] = true
@@ -67,6 +69,7 @@ func water() -> void:
 				i.setWatered()
 		# Tile darkens
 		tilemap.set_cellv(player_pos,TileType.WETDIRT)
+		water_sound.play()
 
 # Enables plough function after timer completes
 func _onPloughTimerComplete() -> void:

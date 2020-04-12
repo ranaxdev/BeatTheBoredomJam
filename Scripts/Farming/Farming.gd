@@ -1,5 +1,7 @@
 extends Plant
 
+onready var refill_sound = $"/root/World/Audio/Refill"
+
 const MAX_WATER:int=4
 const WATERABLE = [TileType.DIRT]
 var water_amount:int
@@ -34,7 +36,7 @@ func refill_water() -> void:
 	if(TileType.WATER in adj):
 		if(Input.is_action_just_pressed("ui_accept") and toolbar.getcurrentTool()==toolbar.getTools().WATER):
 			water_amount = MAX_WATER
-
+			refill_sound.play()
 # *** GETTERS ***
 
 # Get water amount 
