@@ -5,7 +5,8 @@ onready var money = self.get_node("MoneyDisplay/Amount")
 onready var sell_button = self.get_node("MoneyDisplay/SellButton")
 onready var goldlabel = self.get_node("../InventoryTitle/GoldLabel")
 # Defining list of crops
-var croplist = ["WHEAT_CROP", "MELON_CROP", "CARROT_CROP", "TURNIP_CROP","RADISH_CROP","TOMATO_CROP","STRAWBERRY_CROP","BLUEBERRY_CROP"]
+var croplist = ["WHEAT_CROP", "MELON_CROP", "CARROT_CROP", "TURNIP_CROP","RADISH_CROP","TOMATO_CROP","STRAWBERRY_CROP","BLUEBERRY_CROP",
+"WHEAT_SEED","MELON_SEED","CARROT_SEED","TURNIP_SEED","RADISH_SEED","TOMATO_SEED","STRAWBERRY_SEED","BLUEBERRY_SEED","HEALTH_POTION"]
 
 # *** CREATE ***
 func _ready():

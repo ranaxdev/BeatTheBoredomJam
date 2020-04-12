@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/Town/Sell.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/Town/Market.gd" type="Script" id=2]
 [ext_resource path="res://Stylistic/font.tres" type="DynamicFont" id=3]
 [ext_resource path="res://Assets/coin.png" type="Texture" id=4]
+[ext_resource path="res://Scripts/Town/Buy.gd" type="Script" id=5]
 
 [node name="Market" type="Control"]
 margin_top = 2.45547
@@ -107,4 +108,56 @@ text = "SELL"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Buy" type="ItemList" parent="."]
+margin_left = 193.944
+margin_top = -40.86
+margin_right = 560.944
+margin_bottom = 427.14
+custom_fonts/font = ExtResource( 3 )
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MoneyDisplay" type="Panel" parent="Buy"]
+margin_left = 2.22195
+margin_top = 422.994
+margin_right = 366.222
+margin_bottom = 466.994
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Amount" type="Label" parent="Buy/MoneyDisplay"]
+margin_left = 49.5627
+margin_top = 6.49005
+margin_right = 203.563
+margin_bottom = 38.4901
+custom_fonts/font = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Shekel" type="TextureRect" parent="Buy/MoneyDisplay"]
+margin_left = 12.6571
+margin_top = 9.71484
+margin_right = 36.6571
+margin_bottom = 33.7148
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BuyButton" type="Button" parent="Buy/MoneyDisplay"]
+margin_left = 290.325
+margin_top = 3.93112
+margin_right = 353.325
+margin_bottom = 37.9311
+custom_fonts/font = ExtResource( 3 )
+text = "BUY"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="button_up" from="Sell/MoneyDisplay/SellButton" to="Sell" method="_on_SellButton_button_up"]
+[connection signal="button_up" from="Buy/MoneyDisplay/BuyButton" to="Buy" method="_on_BuyButton_button_up"]

@@ -2,18 +2,19 @@ extends Area2D
 
 onready var player : KinematicBody2D = $"/root/World/Player"
 onready var itemdb : Node = $"/root/World/Inventory/ItemDB"
+onready var inventory : ItemList = $"/root/World/Inventory/ItemList"
 
-func _on_Coin_body_entered(body):
-	
+
+func _on_Potion_body_entered(body):
 	if $Timer.is_stopped():
-		addCointToPlayer()
+		addPotionToPlayer()
 		self.queue_free()
 
 func _on_Timer_timeout():
 	$AnimatedSprite.stop()
 	$AnimatedSprite.frame = 0
 
-# Adds random coin amount to inventory
-func addCointToPlayer() -> void:
-	var amount = randi()%50+1
-	itemdb.add_shekels(amount)
+# Adds potion to inventory
+func addPotionToPlayer() -> void:
+	inventory.add_to_inv(1,"HEALTH_POTION")
+	
