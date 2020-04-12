@@ -2,7 +2,7 @@ extends Actor
 
 onready var sword = $Sword
 onready var charSprite = $Sprite
-
+onready var sword_sound = $"/root/World/Audio/Sword"
 var isVulnerable = true
 var isDamaged = false
 
@@ -72,6 +72,7 @@ func attack():
 		sword.get_node("Collision").disabled = false
 		sword.rotation = direction.angle()
 		sword.get_node("Sprite").play()
+	sword_sound.play()
 
 func getInputAxis():
 	return Vector2(

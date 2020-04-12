@@ -21,7 +21,6 @@ func _process(delta):
 	
 	# If potion is equipped, refill health
 	if(ITEMS.is_this_equipped("HEALTH_POTION") and Input.is_action_just_released("attack_1")):
-		print("equipped")
 		player.setHealth(player.health+25)
 		ITEMS.decrease_amount("HEALTH_POTION")
 		ITEMS.unequip()

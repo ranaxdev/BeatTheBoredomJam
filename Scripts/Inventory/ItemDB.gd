@@ -43,7 +43,7 @@ var ITEMS = {
 		# *** SEEDS ****
 	# Wheat seeds
 	"WHEAT_SEED" : {
-		"amount" : 3,
+		"amount" : 0,
 		"formal" : "WHEAT SEEDS",
 		"texture" : wheat_texture,
 		"usage" : "WITH RAKE EQUIPPED PRESS SPACE ON DIRT",

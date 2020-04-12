@@ -1,8 +1,8 @@
 extends MarginContainer
 
 
-
 func _on_Start_button_down():
+	
 	get_tree().change_scene("res://Scenes/World.tscn")
 
 func _on_Controls_button_down():

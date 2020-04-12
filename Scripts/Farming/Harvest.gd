@@ -2,7 +2,7 @@ extends Plant
 
 onready var ploughed = $"/root/World/Farming/Plough"
 onready var seeds = $"/root/World/Farming/Seed" 
-
+onready var harvest_sound = $"/root/World/Audio/Harvest"
 #***CREATE EVENT***
 func _ready():
 	pass
@@ -24,3 +24,4 @@ func harvest():
 			# Add crop to inventory
 			toolbar.addCropAmount() # TEMP LINE TO TRACK TOTAL HARVESTED
 			inventory.add_to_inv(1,crop.getCropName())
+			harvest_sound.play()

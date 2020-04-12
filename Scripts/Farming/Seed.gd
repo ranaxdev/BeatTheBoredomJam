@@ -2,6 +2,7 @@ extends Plant
 
 var Crop = load("res://Scripts/Farming/Crop.gd")
 onready var itemdb = self.get_node("../../Inventory/ItemDB")
+onready var plant_sound = $"/root/World/Audio/Plant"
 """
 seedType - the current seed equipped from inventory
 when inventory management system is made later make sure
@@ -38,6 +39,7 @@ func plantCrop() -> void:
 			# If it was wet dirt, just start growing
 			if(tilemap.get_cellv(player_pos)==TileType.WETDIRT):
 				crop.setWatered()
+			plant_sound.play()
 
 # Return true if overlap between player and a crop
 func cropMatchesPlayer() -> bool:
