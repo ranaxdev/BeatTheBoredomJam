@@ -22,11 +22,6 @@ func _ready():
 	call_deferred("setState", states.idle)
 
 func stateLogic(delta):
-	for key in states:
-		if states[key] == state:
-			$Label.set_text(key)
-	$Label2.set_text(str(global_position.distance_to(player.global_position)))
-	
 	if Input.is_action_just_pressed("doggo_stay"):
 		toggleStay()
 	
