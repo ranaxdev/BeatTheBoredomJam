@@ -2,6 +2,7 @@ extends Actor
 
 onready var nav2d : Navigation2D = $"/root/World/NavMap"
 onready var player : KinematicBody2D = $"/root/World/Player"
+onready var charSprite : AnimatedSprite = $Sprite
 
 # ~~~ MOVE CONSTS ~~~ #
 const startFollowDist := 300
@@ -33,6 +34,11 @@ func stateLogic(delta):
 		follow(delta)
 	if state == states.movingAway:
 		moveAway(delta)
+		
+	if motionAxis.x < 0:
+		charSprite.flip_h = false
+	if motionAxis.x > 0:
+		charSprite.flip_h = true
 
 
 func getTransition(delta):
@@ -60,20 +66,24 @@ func getTransition(delta):
 func enterState(new, old):
 	match new:
 		states.idle:
-			pass
+			charSprite.play("idle")
 		states.following:
-			pass
+			charSprite.play("run")
 		states.movingAway:
-			pass
+			charSprite.play("run")
+		states.sitting:
+			charSprite.play("sit")
 
 func exitState(old, new):
 	match old:
 		states.idle:
-			pass
+			charSprite.stop()
 		states.following:
-			pass
+			charSprite.stop()
 		states.movingAway:
-			pass
+			charSprite.stop()
+		states.sitting:
+			charSprite.stop()
 
 func follow(delta):
 	motionAxis = Vector2.ZERO

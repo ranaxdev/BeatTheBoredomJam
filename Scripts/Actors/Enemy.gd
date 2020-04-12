@@ -46,6 +46,11 @@ func stateLogic(delta):
 			knockbackTween.stop(self)
 		position = knockbackTestPosition
 		
+	if motionAxis.x < 0:
+		charSprite.flip_h = true
+	if motionAxis.x > 0:
+		charSprite.flip_h = false
+		
 func getTransition(delta):
 	match state:
 		states.idle:
