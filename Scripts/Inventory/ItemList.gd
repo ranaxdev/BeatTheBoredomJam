@@ -5,13 +5,7 @@ onready var equipButton = get_node("../Equip/Button")
 onready var unequipButton = get_node("../Equip/UnequipButton")
 onready var player = get_node("../../Player")
 func _ready():
-	add_to_inv(5,"TOMATO_SEED")
-
-	add_to_inv(5, "RADISH_SEED")
-	add_to_inv(5, "TURNIP_SEED")
-	
-	add_to_inv(5,"HEALTH_POTION")
-	
+	add_to_inv(1,"HEALTH_POTION")
 
 # *** UPDATE EVENT ***
 func _process(delta):
