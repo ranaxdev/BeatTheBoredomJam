@@ -1,7 +1,7 @@
 extends Node2D
 class_name Plant
 
-onready var tilemap:TileMap = $"/root/World/NavMap/TileMap"
+onready var tilemap:TileMap = $"/root/World/NavMap/TileMap Layer 2"
 onready var player:Actor = $"/root/World/Player"
 onready var toolbar:Sprite = $"/root/World/Player/Camera2D/Toolbar"
 onready var inventory = $"/root/World/Inventory/ItemList"
