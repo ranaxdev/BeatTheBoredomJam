@@ -8,6 +8,7 @@ onready var timer := $SpawnDelay
 onready var rootNode := get_node("/root/World")
 onready var spawnPoints := $SpawnPoints
 onready var enemy_res := preload("res://Scenes/Actors/Enemy.tscn")
+onready var singleton = get_node("/root/Singleton")
 
 var canSpawn := true
 var spawnNow := false
@@ -30,10 +31,11 @@ func spawn():
 		var point = randi() % points.size()
 		var pos = points[point]
 		#add enemy to root
-		var enemy = enemy_res.instance()
-		enemy.global_position = pos.global_position
-		rootNode.add_child(enemy)
-		points.remove(point)
+		if singleton.enemyCount <= 7:
+			var enemy = enemy_res.instance()
+			enemy.global_position = pos.global_position
+			rootNode.add_child(enemy)
+			points.remove(point)
 	
 
 func _on_Area2D_body_entered(body):

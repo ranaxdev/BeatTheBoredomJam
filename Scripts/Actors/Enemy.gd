@@ -13,6 +13,7 @@ onready var nav2d : Navigation2D = $"/root/World/NavMap"
 onready var rootNode := get_node("/root/World")
 onready var coin_res := preload("res://Scenes/Items/Coin.tscn")
 onready var potion_res := preload("res://Scenes/Items/Potion.tscn")
+onready var singleton = get_node("/root/Singleton")
 const sightDistance = 500
 var knockbackTestPosition
 var isKnockbacked = false;
@@ -21,6 +22,8 @@ var canAttack = true
 
 func _ready():
 	randomize()
+	singleton.enemyCount += 1
+	print(singleton.enemyCount)
 	addState("idle")
 	addState("following")
 	addState("knockback")
@@ -126,6 +129,7 @@ func shouldFollow():
 
 func kill():
 	#drop stuff
+	singleton.enemyCount -= 1
 	var item
 	if randi() % 2 == 0:
 		item = coin_res.instance()
