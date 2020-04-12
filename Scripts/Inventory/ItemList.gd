@@ -3,14 +3,14 @@ extends ItemList
 onready var ITEMS = get_node("../ItemDB")
 onready var equipButton = get_node("../Equip/Button")
 onready var unequipButton = get_node("../Equip/UnequipButton")
-
+onready var player = get_node("../../Player")
 func _ready():
 	add_to_inv(5,"TOMATO_SEED")
 
 	add_to_inv(5, "RADISH_SEED")
 	add_to_inv(5, "TURNIP_SEED")
-
 	
+	add_to_inv(5,"HEALTH_POTION")
 	
 
 # *** UPDATE EVENT ***
@@ -24,7 +24,13 @@ func _process(delta):
 	# Update items
 	_update_item_amounts()
 	_remove_empty_items()
-
+	
+	# If potion is equipped, refill health
+	if(ITEMS.is_this_equipped("HEALTH_POTION") and Input.is_action_just_released("attack_1")):
+		print("equipped")
+		player.setHealth(player.health+25)
+		ITEMS.decrease_amount("HEALTH_POTION")
+		ITEMS.unequip()
 
 # Update item amounts (by adjusting name)
 func _update_item_amounts() -> void:

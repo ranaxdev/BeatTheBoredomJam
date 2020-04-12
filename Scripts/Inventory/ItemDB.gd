@@ -8,6 +8,8 @@ Structure of item database:
 	}
 """
 # Item textures (make class for this later)
+# Potions
+var health_texture:Texture = preload("res://Assets/inv_icons/healthpotion.png")
 # Seeds
 var wheat_texture:Texture = preload("res://Assets/inv_icons/wheat_seed.png")
 var melon_texture:Texture = preload("res://Assets/inv_icons/melon_seed.png")
@@ -175,6 +177,15 @@ var ITEMS = {
 		"texture" : blueberrycrop_texture,
 		"usage" : "NONE",
 		"price" : 12
+	}
+	,
+	# Health potion
+	"HEALTH_POTION" : {
+		"amount" : 0,
+		"formal" : "HEALTH POTION",
+		"texture" : health_texture,
+		"usage" : "",
+		"price" : 200
 	}
 	,
 	# Cyanide pills (temp)

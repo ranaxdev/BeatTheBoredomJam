@@ -146,7 +146,7 @@ position = Vector2( 1.90735e-06, 0.249132 )
 scale = Vector2( 4, 4 )
 frames = SubResource( 20 )
 animation = "damage"
-frame = 5
+frame = 1
 playing = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
