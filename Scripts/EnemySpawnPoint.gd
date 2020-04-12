@@ -43,7 +43,8 @@ func _on_Area2D_body_entered(body):
 		spawnNow = true
 
 func _on_TriggerArea_body_exited(body):
-	timer.start()
+	if timer.is_stopped():
+		timer.start()
 
 func _on_SpawnDelay_timeout():
 	canSpawn = true
