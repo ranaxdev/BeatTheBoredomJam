@@ -6,6 +6,8 @@ onready var sword_sound = $"/root/World/Audio/Sword"
 var isVulnerable = true
 var isDamaged = false
 
+onready var singleton = get_node("/root/Singleton")
+
 func _ready():
 	addState("idle")
 	addState("move")
@@ -82,6 +84,7 @@ func getInputAxis():
 
 func kill():
 	# for time being restarts game
+	singleton.enemyCount = 0
 	get_tree().reload_current_scene()
 
 func _on_Sprite_animation_finished():
