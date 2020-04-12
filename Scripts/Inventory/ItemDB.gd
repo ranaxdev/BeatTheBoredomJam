@@ -46,7 +46,8 @@ var ITEMS = {
 		"amount" : 3,
 		"formal" : "WHEAT SEEDS",
 		"texture" : wheat_texture,
-		"usage" : "WITH RAKE EQUIPPED PRESS SPACE ON DIRT"
+		"usage" : "WITH RAKE EQUIPPED PRESS SPACE ON DIRT",
+		"price" : 1
 	}
 	,
 	# Melon seeds
@@ -54,7 +55,8 @@ var ITEMS = {
 		"amount" : 0,
 		"formal" : "MELON SEEDS",
 		"texture" : melon_texture,
-		"usage" : "WITH RAKE EQUIPPED PRESS SPACE ON DIRT"
+		"usage" : "WITH RAKE EQUIPPED PRESS SPACE ON DIRT",
+		"price" : 20
 	}
 	,
 	# Carrot seeds
@@ -62,7 +64,8 @@ var ITEMS = {
 		"amount" : 0,
 		"formal" : "CARROT SEEDS",
 		"texture" : cock_texture,
-		"usage" : "WITH RAKE EQUIPPED PRESS SPACE ON DIRT"
+		"usage" : "WITH RAKE EQUIPPED PRESS SPACE ON DIRT",
+		"price" : 3
 	}
 	,
 	# Turnip seeds
@@ -70,7 +73,8 @@ var ITEMS = {
 		"amount" : 0,
 		"formal" : "TURNIP SEEDS",
 		"texture" : turnip_texture,
-		"usage" : "WITH RAKE EQUIPPED PRESS SPACE ON DIRT"
+		"usage" : "WITH RAKE EQUIPPED PRESS SPACE ON DIRT",
+		"price" : 2
 	}
 	,
 	# Radish seeds
@@ -78,7 +82,8 @@ var ITEMS = {
 		"amount" : 0,
 		"formal" : "RADISH SEEDS",
 		"texture" : radish_texture,
-		"usage" : "WITH RAKE EQUIPPED PRESS SPACE ON DIRT"
+		"usage" : "WITH RAKE EQUIPPED PRESS SPACE ON DIRT",
+		"price" : 3
 	}
 	,
 	# Tomato seeds
@@ -86,7 +91,8 @@ var ITEMS = {
 		"amount" : 0,
 		"formal" : "TOMATO SEEDS",
 		"texture" : tomato_texture,
-		"usage" : "WITH RAKE EQUIPPED PRESS SPACE ON DIRT"
+		"usage" : "WITH RAKE EQUIPPED PRESS SPACE ON DIRT",
+		"price" : 4
 	}
 	,
 	# Strawberry seeds
@@ -94,7 +100,8 @@ var ITEMS = {
 		"amount" : 0,
 		"formal" : "STRAWBERRY SEEDS",
 		"texture" : strawberry_texture,
-		"usage" : "WITH RAKE EQUIPPED PRESS SPACE ON DIRT"
+		"usage" : "WITH RAKE EQUIPPED PRESS SPACE ON DIRT",
+		"price" : 7
 	}
 	,
 	# Blueberry seeds
@@ -102,7 +109,8 @@ var ITEMS = {
 		"amount" : 0,
 		"formal" : "BLUEBERRY SEEDS",
 		"texture" : blueberry_texture,
-		"usage" : "WITH RAKE EQUIPPED PRESS SPACE ON DIRT"
+		"usage" : "WITH RAKE EQUIPPED PRESS SPACE ON DIRT",
+		"price" : 6
 	}
 	
 	,
