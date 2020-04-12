@@ -25,19 +25,6 @@ __meta__ = {
 Big Chungus"
 }
 
-[node name="TileMap" type="TileMap" parent="NavMap"]
-position = Vector2( 1, 0 )
-scale = Vector2( 4, 4 )
-tile_set = ExtResource( 4 )
-cell_size = Vector2( 16, 16 )
-cell_y_sort = true
-compatibility_mode = true
-centered_textures = true
-cell_clip_uv = true
-collision_layer = 16
-collision_mask = 7
-format = 1
-
 [node name="TileMap Layer 2" type="TileMap" parent="NavMap"]
 position = Vector2( 0, -1 )
 scale = Vector2( 4, 4 )
@@ -67,6 +54,9 @@ script = ExtResource( 3 )
 [node name="Harvest" type="Node2D" parent="Farming"]
 script = ExtResource( 8 )
 
+
+[node name="Town" parent="." instance=ExtResource( 12 )]
+
 [node name="Inventory" parent="." instance=ExtResource( 10 )]
 anchor_left = 0.126
 anchor_top = 1.098
@@ -76,6 +66,7 @@ margin_left = -882.115
 margin_top = 1635.49
 margin_right = -842.115
 margin_bottom = 1675.49
+
 
 [node name="EnemySpawnPoint" parent="." instance=ExtResource( 9 )]
 position = Vector2( 317.272, 1204.75 )
@@ -116,10 +107,11 @@ visible = false
 [node name="CollisionPolygon2D" parent="EnemySpawnPoint/TriggerArea" index="0"]
 polygon = PoolVector2Array( 237.485, 129.342, 520.461, -38.8035, 642.886, -240.061, 199.101, -671.21, -164.823, -627.258, -593.797, -275.64, -590.281, 253.545, -143.726, 337.933 )
 
-[node name="Town" parent="." instance=ExtResource( 12 )]
-
 [node name="Doggo" parent="." instance=ExtResource( 5 )]
 position = Vector2( 1743.71, 1973.44 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1719.23, 2131.16 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 1719.23, 2131.16 )
@@ -129,6 +121,16 @@ margin_left = -1058.28
 margin_top = 1397.28
 margin_right = -1018.28
 margin_bottom = 1437.28
+
+[node name="Inventory" parent="." instance=ExtResource( 10 )]
+anchor_left = 0.126
+anchor_top = 1.098
+anchor_right = 0.126
+anchor_bottom = 1.098
+margin_left = -882.115
+margin_top = 1635.49
+margin_right = -842.115
+margin_bottom = 1675.49
 [connection signal="body_exited" from="EnemySpawnPoint/TriggerArea" to="EnemySpawnPoint" method="_on_TriggerArea_body_exited"]
 
 [editable path="EnemySpawnPoint"]
