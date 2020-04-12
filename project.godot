@@ -46,6 +46,7 @@ _global_script_class_icons={
 
 config/name="Beat The Boredom Jam"
 run/main_scene="res://Scenes/UI/MainMenu.tscn"
+boot_splash/image="res://Assets/splash.png"
 boot_splash/fullsize=false
 boot_splash/use_filter=false
 boot_splash/bg_color=Color( 0.0862745, 0.0862745, 0.0862745, 1 )
@@ -62,6 +63,10 @@ window/size/width=1200
 window/size/height=800
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
+
+[global]
+
+splash=false
 
 [input]
 
