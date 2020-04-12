@@ -16,7 +16,7 @@ var CROPS = {
 	0 : {
 		"seed" : "WHEAT_SEED",
 		"texture" : wheatTexture,
-		"growtime" : 3.0,
+		"growtime" : 30.0,
 		"name" : "WHEAT_CROP"
 	}
 	,
@@ -24,7 +24,7 @@ var CROPS = {
 	1 : {
 		"seed" : "MELON_SEED",
 		"texture" : melonTexture,
-		"growtime" : 3.0,
+		"growtime" : 60.0,
 		"name" : "MELON_CROP"
 	}
 	,
@@ -32,7 +32,7 @@ var CROPS = {
 	2 : {
 		"seed" : "CARROT_SEED",
 		"texture" : cockTexture,
-		"growtime" : 3.0,
+		"growtime" : 150.0,
 		"name" : "CARROT_CROP"
 	}
 	,
@@ -40,7 +40,7 @@ var CROPS = {
 	3 : {
 		"seed" : "TURNIP_SEED",
 		"texture" : turnipTexture,
-		"growtime" : 3.0,
+		"growtime" : 90.0,
 		"name" : "TURNIP_CROP"
 	}
 	,
@@ -48,7 +48,7 @@ var CROPS = {
 	4 : {
 		"seed" : "RADISH_SEED",
 		"texture" : radishTexture,
-		"growtime" : 3.0,
+		"growtime" : 80.0,
 		"name" : "RADISH_CROP"
 	}
 	,
@@ -56,7 +56,7 @@ var CROPS = {
 	5 : {
 		"seed" : "TOMATO_SEED",
 		"texture" : tomatoTexture,
-		"growtime" : 3.0,
+		"growtime" : 30.0,
 		"name" : "TOMATO_CROP"
 	}
 	,
@@ -64,7 +64,7 @@ var CROPS = {
 	6 : {
 		"seed" : "STRAWBERRY_SEED",
 		"texture" : strawberryTexture,
-		"growtime" : 3.0,
+		"growtime" : 120.0,
 		"name" : "STRAWBERRY_CROP"
 	}
 	,
@@ -72,7 +72,7 @@ var CROPS = {
 	7 : {
 		"seed" : "BLUEBERRY_SEED",
 		"texture" : blueberryTexture,
-		"growtime" : 3.0,
+		"growtime" : 180.0,
 		"name" : "BLUEBERRY_CROP"
 	}
 }
