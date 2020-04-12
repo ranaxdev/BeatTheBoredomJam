@@ -14,7 +14,7 @@
 [ext_resource path="res://Scenes/Transition.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Assets/Pixeled.ttf" type="DynamicFontData" id=13]
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=1]
 resource_name = "animation"
 length = 2.0
 tracks/0/type = "value"
@@ -30,7 +30,7 @@ tracks/0/keys = {
 "values": [ 1.0, 0.0 ]
 }
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=2]
 size = 20
 font_data = ExtResource( 13 )
 
@@ -117,13 +117,13 @@ one_shot = true
 [node name="ColorRect" parent="." instance=ExtResource( 12 )]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ColorRect"]
-anims/animation = SubResource( 2 )
+anims/animation = SubResource( 1 )
 
 [node name="Label" type="Label" parent="ColorRect"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 text = "Welcome to Oakland Farm
 Exile : Day 1"
 align = 1

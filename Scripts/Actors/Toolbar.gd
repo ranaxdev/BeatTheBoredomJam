@@ -13,7 +13,7 @@ func _ready():
 
 #***UPDATE EVENT***
 func _process(_delta):
-	$cropLabel.set_text(str(cropAmount)+" CROPS")
+	pass
 
 # Set current tool
 func setcurrentTool(current_tool:int)->void:

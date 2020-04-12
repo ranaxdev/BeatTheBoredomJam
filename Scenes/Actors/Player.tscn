@@ -146,7 +146,6 @@ position = Vector2( 1.90735e-06, 0.249132 )
 scale = Vector2( 4, 4 )
 frames = SubResource( 20 )
 animation = "damage"
-frame = 1
 playing = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -158,20 +157,6 @@ position = Vector2( 478.2, -291.429 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 80, 32 )
 script = ExtResource( 3 )
-
-[node name="cropLabel" type="Label" parent="Camera2D/Toolbar"]
-anchor_left = -782.75
-anchor_top = -3.956
-anchor_right = -782.75
-anchor_bottom = -3.956
-margin_left = -2.69513
-margin_top = -3.18182
-margin_right = 37.3049
-margin_bottom = 10.8182
-text = "TEST"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="MerchantTex" type="TextureRect" parent="Camera2D"]
 visible = false
