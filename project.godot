@@ -45,7 +45,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Beat The Boredom Jam"
-run/main_scene="res://Scenes/World.tscn"
+run/main_scene="res://Scenes/UI/MainMenu.tscn"
 boot_splash/fullsize=false
 boot_splash/use_filter=false
 boot_splash/bg_color=Color( 0.0862745, 0.0862745, 0.0862745, 1 )
