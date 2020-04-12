@@ -5,6 +5,7 @@ class_name Healthbar
 onready var MAX_HEALTH = get_parent().get_parent().maxHealth
 
 func _ready():
+	pause_mode = Node.PAUSE_MODE_PROCESS
 	self.set_max(MAX_HEALTH) # Set bar's max val
 	self.set_value(MAX_HEALTH) # Start with full health
 

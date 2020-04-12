@@ -8,6 +8,8 @@ Structure of item database:
 	}
 """
 # Item textures (make class for this later)
+# Potions
+var health_texture:Texture = preload("res://Assets/inv_icons/healthpotion.png")
 # Seeds
 var wheat_texture:Texture = preload("res://Assets/inv_icons/wheat_seed.png")
 var melon_texture:Texture = preload("res://Assets/inv_icons/melon_seed.png")
@@ -44,7 +46,8 @@ var ITEMS = {
 		"amount" : 3,
 		"formal" : "WHEAT SEEDS",
 		"texture" : wheat_texture,
-		"usage" : "WITH RAKE EQUIPPED PRESS SPACE ON DIRT"
+		"usage" : "WITH RAKE EQUIPPED PRESS SPACE ON DIRT",
+		"price" : 1
 	}
 	,
 	# Melon seeds
@@ -52,7 +55,8 @@ var ITEMS = {
 		"amount" : 0,
 		"formal" : "MELON SEEDS",
 		"texture" : melon_texture,
-		"usage" : "WITH RAKE EQUIPPED PRESS SPACE ON DIRT"
+		"usage" : "WITH RAKE EQUIPPED PRESS SPACE ON DIRT",
+		"price" : 20
 	}
 	,
 	# Carrot seeds
@@ -60,7 +64,8 @@ var ITEMS = {
 		"amount" : 0,
 		"formal" : "CARROT SEEDS",
 		"texture" : cock_texture,
-		"usage" : "WITH RAKE EQUIPPED PRESS SPACE ON DIRT"
+		"usage" : "WITH RAKE EQUIPPED PRESS SPACE ON DIRT",
+		"price" : 3
 	}
 	,
 	# Turnip seeds
@@ -68,7 +73,8 @@ var ITEMS = {
 		"amount" : 0,
 		"formal" : "TURNIP SEEDS",
 		"texture" : turnip_texture,
-		"usage" : "WITH RAKE EQUIPPED PRESS SPACE ON DIRT"
+		"usage" : "WITH RAKE EQUIPPED PRESS SPACE ON DIRT",
+		"price" : 2
 	}
 	,
 	# Radish seeds
@@ -76,7 +82,8 @@ var ITEMS = {
 		"amount" : 0,
 		"formal" : "RADISH SEEDS",
 		"texture" : radish_texture,
-		"usage" : "WITH RAKE EQUIPPED PRESS SPACE ON DIRT"
+		"usage" : "WITH RAKE EQUIPPED PRESS SPACE ON DIRT",
+		"price" : 3
 	}
 	,
 	# Tomato seeds
@@ -84,7 +91,8 @@ var ITEMS = {
 		"amount" : 0,
 		"formal" : "TOMATO SEEDS",
 		"texture" : tomato_texture,
-		"usage" : "WITH RAKE EQUIPPED PRESS SPACE ON DIRT"
+		"usage" : "WITH RAKE EQUIPPED PRESS SPACE ON DIRT",
+		"price" : 4
 	}
 	,
 	# Strawberry seeds
@@ -92,7 +100,8 @@ var ITEMS = {
 		"amount" : 0,
 		"formal" : "STRAWBERRY SEEDS",
 		"texture" : strawberry_texture,
-		"usage" : "WITH RAKE EQUIPPED PRESS SPACE ON DIRT"
+		"usage" : "WITH RAKE EQUIPPED PRESS SPACE ON DIRT",
+		"price" : 7
 	}
 	,
 	# Blueberry seeds
@@ -100,7 +109,8 @@ var ITEMS = {
 		"amount" : 0,
 		"formal" : "BLUEBERRY SEEDS",
 		"texture" : blueberry_texture,
-		"usage" : "WITH RAKE EQUIPPED PRESS SPACE ON DIRT"
+		"usage" : "WITH RAKE EQUIPPED PRESS SPACE ON DIRT",
+		"price" : 6
 	}
 	
 	,
@@ -175,6 +185,15 @@ var ITEMS = {
 		"texture" : blueberrycrop_texture,
 		"usage" : "NONE",
 		"price" : 12
+	}
+	,
+	# Health potion
+	"HEALTH_POTION" : {
+		"amount" : 0,
+		"formal" : "HEALTH POTION",
+		"texture" : health_texture,
+		"usage" : "",
+		"price" : 200
 	}
 	,
 	# Cyanide pills (temp)
